@@ -1,0 +1,45 @@
+
+  <h2>Events</h2>
+
+<a ui-sref="eventform">Edit/Add</a>
+<ul class="master-event-list">
+    <li ng-repeat="event in events | orderBy:['-date']">
+
+      <div ng-hide="editMode" class="event-card mag-{{ event.magnitude }}">
+        <div class="row">
+          <div class="event-list-date col-xs-12 col-sm-2">{{ event.date | date:'MMM/dd/yyyy' }}</div>
+          <div class="event-list-location col-xs-12 col-sm-6">{{ event.nearestCity }}, {{ event.stateProv }}</div>
+          <div class="col-xs-12 col-sm-4">lat: {{ event.location.lat }}, lng: {{ event.location.lng }}</div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 event-blurb">{{ event.blurb }}</div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-4"><label>type:</label> {{ event.type }}</div>
+          <div class="col-xs-12 col-sm-4"><label>material:</label> {{ event.material }}</div>
+          <div class="col-xs-12 col-sm-4"><label>casualties:</label> {{ event.casualties }}</div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-4"><label>magnitude:</label> {{ event.magnitude }}</div>
+          <div class="col-xs-12 col-sm-4"><label>cost:</label> {{ event.cost }}</div>
+          <div class="col-xs-12 col-sm-4"><label>volume:</label> {{ event.volume }}</div>
+        </div>
+        <!--
+        Tags
+        -->
+        <div ow-event-tags ng-model="event"></div>
+        <!--
+        Links
+        -->
+        <div ow-event-link-list ng-model="event"></div>
+        <!--
+        Form
+        -->
+        <div ow-event-form ng-model="event"></div>
+        <!--
+        Delete
+        -->
+        <button ng-click="deleteEvent(event)"  class="lnk-command event-command">Delete Event</button>
+      </div>
+    </li>
+</ul>
