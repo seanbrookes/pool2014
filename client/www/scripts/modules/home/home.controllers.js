@@ -3,23 +3,12 @@
  */
 Home.controller('HomeController', [
   '$scope',
-  '$state',
-  'HomeService',
-  function ($scope, $state, HomeService) {
+  function ($scope) {
 
-    console.log('home');
-    $scope.viewTitle = 'Oil Wreck';
+    console.log('home controller');
 
 
 
 
   }
-]);
-Home.controller('AboutController',[
-  '$scope',
-  function($scope){
-    "use strict";
-
-  }
-
 ]);

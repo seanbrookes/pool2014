@@ -8,13 +8,12 @@ var app = angular.module('app', [
   'Home',
   'Tag',
   'Event',
+  'Draft',
+  'Roster',
   'Reference',
-  'Map',
   'Blog',
-  'leaflet-directive',
   'ui.bootstrap',
   'ui.utils',
-  'ui.map',
   'angular-medium-editor',
   'ngGrid'
 ]);
@@ -26,18 +25,13 @@ app.run([
 
   }
 ]);
-//app.config([
-//  '$httpProvider',
-//  function ($httpProvider) {
-//    $httpProvider.interceptors.push('requestInterceptor');
-//  }
-//]);
+
 app.config([
   '$stateProvider',
   '$urlRouterProvider',
   function ($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/draft');
 
     $stateProvider.
       state('home', {
@@ -50,21 +44,6 @@ app.config([
         controller:'TagController',
         templateUrl:'./scripts/modules/tag/templates/tag.input.html'
       }).
-      state('eventform', {
-        url:'/eventform',
-        controller:'EventFormController',
-        templateUrl:'./scripts/modules/event/templates/event.form.html'
-      }).
-      state('editevent', {
-        url:'/editevent/:id',
-        controller:'EventEditController',
-        templateUrl:'./scripts/modules/event/templates/event.form.html'
-      }).
-      state('dot111', {
-        url:'/dot111',
-        controller:'DOT111Controller',
-        templateUrl:'./scripts/modules/dot111/templates/dot111.home.html'
-      }).
       state('reference', {
         url:'/reference',
         controller:'ReferenceMainController',
@@ -75,30 +54,25 @@ app.config([
         controller:'MainAdminController',
         templateUrl:'./scripts/modules/admin/templates/admin.home.html'
       }).
-      state('about', {
-        url:'/about',
-        controller:'AboutController',
-        templateUrl:'./scripts/modules/home/templates/about.home.html'
-      }).
-      state('map', {
-        url:'/map',
-        controller:'MapHomeController',
-        templateUrl:'./scripts/modules/map/templates/map.home.html'
-      }).
-      state('map1', {
-        url:'/map1',
-        controller:'EventGMapController',
-        templateUrl:'./scripts/modules/event/templates/event.gmap.html'
-      }).
       state('blog', {
         url:'/blog',
         controller:'BlogMainController',
         templateUrl:'./scripts/modules/blog/templates/blog.home.html'
       }).
-      state('events', {
-        url:'/events',
-        controller:'EventController',
-        templateUrl:'./scripts/modules/event/templates/event.list.html'
+      state('roster', {
+        url:'/roster',
+        controller:'RosterMainController',
+        templateUrl:'./scripts/modules/roster/templates/roster.main.html'
+      }).
+      state('roster.name', {
+        url:'/:name',
+        controller:'RosterMainController',
+        templateUrl:'./scripts/modules/roster/templates/roster.main.html'
+      }).
+      state('draft', {
+        url:'/draft',
+        controller:'DraftMainController',
+        templateUrl:'./scripts/modules/draft/templates/draft.main.html'
       });
 
   }

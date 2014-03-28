@@ -10,6 +10,13 @@
     "notification": "notification",
     "application": "application"
   },
+  "mongodb": {
+    "defaultForType": "mongodb",
+    "connector": "loopback-connector-mongodb",
+    "host": "0.0.0.0",
+    "database": "pool2014",
+    "port": 27017
+  },
   "mail": {
     "defaultForType": "mail",
     "connector": "mail"
