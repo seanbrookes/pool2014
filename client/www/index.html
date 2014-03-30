@@ -22,12 +22,13 @@
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
           <a class="navbar-brand" ui-sref="home">Home</a>
-          <a class="navbar-brand" ui-sref="standings">Standings</a>
-          <a class="navbar-brand" ui-sref="bashers">Bashers</a>
-          <a class="navbar-brand" ui-sref="mashers">Mashers</a>
-          <a class="navbar-brand" ui-sref="rallycaps">Rally Caps</a>
-          <a class="navbar-brand" ui-sref="stallions">Stallions</a>
           <a class="navbar-brand" ui-sref="draft">Draft</a>
+          <!--<a class="navbar-brand" ui-sref="standings">Standings</a>-->
+          <a class="navbar-brand" href="#roster/bashers">Bashers</a>
+          <a class="navbar-brand" href="#roster/mashers">Mashers</a>
+          <a class="navbar-brand" href="#roster/rallycaps">Rally Caps</a>
+          <a class="navbar-brand" href="#roster/stallions">Stallions</a>
+
         </div>
       </div>
     </nav>
@@ -91,6 +92,9 @@
   <script src="./scripts/modules/home/home.module.js"></script>
   <script src="./scripts/modules/home/home.services.js"></script>
   <script src="./scripts/modules/home/home.controllers.js"></script>
+
+  <script src="./scripts/modules/auth/auth.module.js"></script>
+  <script src="./scripts/modules/auth/auth.controllers.js"></script>
 
 </body>
 </html>

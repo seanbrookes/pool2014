@@ -8,6 +8,7 @@ var app = angular.module('app', [
   'Home',
   'Tag',
   'Event',
+  'Auth',
   'Draft',
   'Roster',
   'Reference',
@@ -60,20 +61,21 @@ app.config([
         templateUrl:'./scripts/modules/blog/templates/blog.home.html'
       }).
       state('roster', {
-        url:'/roster',
+        url:'/roster/:name',
         controller:'RosterMainController',
         templateUrl:'./scripts/modules/roster/templates/roster.main.html'
       }).
-      state('roster.name', {
-        url:'/:name',
-        controller:'RosterMainController',
-        templateUrl:'./scripts/modules/roster/templates/roster.main.html'
+      state('auth',{
+        url:'/auth/:name',
+        controller:'AuthMainController',
+        templateUrl:'./scripts/modules/auth/templates/auth.main.html'
       }).
       state('draft', {
         url:'/draft',
         controller:'DraftMainController',
         templateUrl:'./scripts/modules/draft/templates/draft.main.html'
       });
+
 
   }
 ]);
