@@ -70,6 +70,11 @@ app.config([
         controller:'AuthMainController',
         templateUrl:'./scripts/modules/auth/templates/auth.main.html'
       }).
+      state('generate',{
+        url:'/generate',
+        controller:'GenListController',
+        templateUrl:'./scripts/modules/draft/templates/draft.main.html'
+      }).
       state('draft', {
         url:'/draft',
         controller:'DraftMainController',
