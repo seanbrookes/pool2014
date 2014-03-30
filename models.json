@@ -98,7 +98,7 @@
       }
     },
     "public": true,
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "plural": "batterstats"
   },
   "chatmessage": {
@@ -109,7 +109,7 @@
       }
     },
     "public": true,
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "plural": "chatmessages"
   },
   "draft": {
@@ -120,7 +120,7 @@
       }
     },
     "public": true,
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "plural": "drafts"
   },
   "draftpick": {
@@ -131,7 +131,7 @@
       }
     },
     "public": true,
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "plural": "draftpicks"
   },
   "pitcherstats": {
@@ -142,7 +142,7 @@
       }
     },
     "public": true,
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "plural": "pitcherstats"
   },
   "player": {
@@ -153,7 +153,7 @@
       }
     },
     "public": true,
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "plural": "players"
   },
   "roster": {
@@ -164,7 +164,7 @@
       }
     },
     "public": true,
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "plural": "rosters"
   },
   "totals": {
@@ -175,7 +175,7 @@
       }
     },
     "public": true,
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "plural": "totals"
   }
 }

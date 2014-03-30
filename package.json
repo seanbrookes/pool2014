@@ -31,5 +31,6 @@
   "bugs": {
     "url": "https://github.com/seanbrookes/pool2014/issues"
   },
-  "homepage": "https://github.com/seanbrookes/pool2014"
+  "homepage": "https://github.com/seanbrookes/pool2014",
+  "description": "pool site for 2014"
 }

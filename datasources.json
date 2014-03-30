@@ -13,9 +13,7 @@
   "mongodb": {
     "defaultForType": "mongodb",
     "connector": "loopback-connector-mongodb",
-    "host": "0.0.0.0",
-    "database": "pool2014",
-    "port": 27017
+    "url":"mongodb://heroku_app23555396:bf8fkob6cl09nv8rs7qomh7faj@ds035897.mongolab.com:35897/heroku_app23555396"
   },
   "mail": {
     "defaultForType": "mail",
