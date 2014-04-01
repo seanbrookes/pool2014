@@ -87,7 +87,7 @@ Draft.controller('DraftMainController',[
         }
       );
     }
-    var timer = setInterval(updateBoard, 42000);
+  //  var timer = setInterval(updateBoard, 42000);
 
 
 

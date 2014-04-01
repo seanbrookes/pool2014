@@ -128,3 +128,15 @@ li {
     width: 700px;
     height: 3000px;
 }
+.input-player-name{
+    width:30rem;
+}
+#FormAdminRosterPlayer{
+    display:none;
+}
+.roster-table button{
+    display:none;
+}
+.draft-table button{
+    display:none;
+}
