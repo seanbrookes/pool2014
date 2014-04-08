@@ -5,8 +5,10 @@ Roster.controller('RosterMainController',[
   '$scope',
   'RosterService',
   'Roster',
+  'Rosterbatter',
+  'Rosterpitcher',
   '$stateParams',
-  function($scope, RosterService, Roster, $stateParams){
+  function($scope, RosterService, Roster, Rosterbatter, Rosterpitcher, $stateParams){
     console.log('Roster Main Controller');
     $scope.currentRosterName = $stateParams.name;
     var authUser = localStorage.getItem('homeRoster');
@@ -130,6 +132,61 @@ Roster.controller('RosterMainController',[
 
 
     };
+
+    $scope.postToHitterList = function(){
+
+
+
+
+      console.log('POST THESE PLAYERS: ' + $scope.players);
+      angular.forEach($scope.players, function(value, key){
+        var playerObj = value;
+        playerObj.roster = $scope.currentRosterName;
+        playerObj.rosterStatus = value.status;
+       // console.log('roster: ' + $scope.currentRosterName);
+        if (playerObj.posType === 'hitter' ){
+         // console.log('HITTER: ' + JSON.stringify(playerObj));
+          Rosterbatter.updateOrCreate(playerObj,
+            function(response) {
+              console.log('good add roster batter');
+            },
+            function(response) {
+              console.log('bad add roster batter');
+            }
+          )
+        }
+        else if (playerObj.posType === 'pitcher'){
+          //console.log('PITCHER: ' + JSON.stringify(playerObj));
+          Rosterpitcher.updateOrCreate(playerObj,
+            function(response) {
+              console.log('good add roster pitcher');
+            },
+            function(response) {
+              console.log('bad add roster pitcher');
+            }
+          )
+
+        }
+        else {
+          console.log('wtf:   ');
+          console.log('wtf:   ');
+          console.log('wtf:   ');
+          console.log('wtf:   ');
+          console.log('wtf:   ' + JSON.stringify(playerObj));
+          console.log('wtf:   ');
+          console.log('wtf:   ');
+          console.log('wtf:   ');
+          console.log('wtf:   ');
+          console.log('wtf:   ');
+          console.log('wtf:   ');
+        }
+
+
+
+
+
+      });
+    }
 
   }
 ]);

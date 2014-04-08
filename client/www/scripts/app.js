@@ -8,6 +8,7 @@ var app = angular.module('app', [
   'Home',
   'Tag',
   'Event',
+  'Admin',
   'Auth',
   'Draft',
   'Roster',

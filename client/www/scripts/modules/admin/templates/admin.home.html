@@ -1,2 +1,63 @@
 <h2>Admin Home</h2>
-<button>export data</button>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-3 ">
+      <div class="player-list-container">
+        <button ng-click="loadRoster('bashers')" ng-model="currRoster">bashers</button>
+        <button ng-click="loadRoster('mashers')" ng-model="currRoster">mashers</button>
+        <button ng-click="loadRoster('rallycaps')" ng-model="currRoster">rally caps</button>
+        <button ng-click="loadRoster('stallions')" ng-model="currRoster">stallions</button>
+        <table>
+          <tr ng-repeat="player in players  | orderBy:['name']" ng-class="getAssociatedStatus(player)">
+            <td>
+              <button ng-model="player" ng-click="associateRosterPLayer(player)">lnk</button>
+            </td>
+            <td data-mlbid="{{ player.mlbid }}">{{ player.name }}</td>
+            <td>{{ player.team }}</td>
+            <td>
+              <!--<button ng-model="player" ng-click="editPlayer(player)" >edit</button>-->
+              <!--<button ng-model="player" ng-click="deletePlayer(player)" >delete</button>-->
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="col-xs-4">
+      <div class="player-list-container">
+        <button ng-click="pullRawBatters()">pull batters</button>
+        <button ng-click="pullRawPitchers()">pull pitcher</button>
+
+        <ul>
+          <li ng-repeat="player in allPlayers | orderBy:['name']">
+            <!--<input-->
+              <!--type="checkbox"-->
+              <!--value="{{player.mlbid}}"-->
+              <!--ng-model="player.selected"-->
+              <!--name="selectedMLBIds[]"><label>{{ player.name}}</label>-->
+
+            <label>
+              <input
+                type="radio"
+                name="mLBSet"
+                ng-model="$parent.mLBSet"
+                ng-change="chooseMLBPLayer()"
+                ng-value="player" />
+              {{player.name}} - {{ player.team }}
+            </label>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-xs-2">
+      <p>{{ mLBSet.mlbid }}</p>
+      <p>{{ linkPLayer.name }}</p>
+
+    </div>
+  </div>
+</div>
+
+
+
+

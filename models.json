@@ -177,5 +177,313 @@
     "public": true,
     "dataSource": "mongodb",
     "plural": "totals"
+  },
+  "rawbatterstats": {
+    "properties": {
+      "id": {
+        "type": "string",
+        "id": true
+      },
+      "date": {
+        "type": "date"
+      },
+      "stats": {
+        "type": "string"
+      }
+    },
+    "public": true,
+    "dataSource": "mongodb",
+    "plural": "rawbatterstats"
+  },
+  "rawpitcherstats": {
+    "properties": {
+      "id": {
+        "type": "string",
+        "id": true
+      },
+      "date": {
+        "type": "date"
+      },
+      "stats": {
+        "type": "string"
+      }
+    },
+    "public": true,
+    "dataSource": "mongodb",
+    "plural": "rawpitcherstats"
+  },
+  "rawpitcherid": {
+    "properties": {
+      "id": {
+        "type": "string",
+        "id": true
+      },
+      "mlbid": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "team": {
+        "type": "string"
+      }
+    },
+    "public": true,
+    "dataSource": "mongodb",
+    "plural": "rawpitcherids"
+  },
+  "rawbatterid": {
+    "properties": {
+      "id": {
+        "type": "string",
+        "id": true
+      },
+      "mlbid": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "team": {
+        "type": "string"
+      }
+    },
+    "public": true,
+    "dataSource": "mongodb",
+    "plural": "rawbatterids"
+  },
+  "statupdate": {
+    "properties": {
+      "id": {
+        "type": "string",
+        "id": true
+      },
+      "date": {
+        "type": "date"
+      },
+      "type": {
+        "type": "string"
+      },
+      "status": {
+        "type": "string"
+      }
+    },
+    "public": true,
+    "dataSource": "mongodb",
+    "plural": "statupdates"
+  },
+  "dailypitcherstat": {
+    "properties": {
+      "id": {
+        "type": "string",
+        "id": true
+      },
+      "date": {
+        "type": "date"
+      },
+      "mlbid": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "roster": {
+        "type": "string"
+      },
+      "team": {
+        "type": "string"
+      },
+      "type": {
+        "type": "string"
+      },
+      "w": {
+        "type": "number"
+      },
+      "l": {
+        "type": "number"
+      },
+      "ip": {
+        "type": "number"
+      },
+      "k": {
+        "type": "number"
+      },
+      "sv": {
+        "type": "number"
+      },
+      "total": {
+        "type": "number"
+      }
+    },
+    "public": true,
+    "dataSource": "db",
+    "plural": "dailypitcherstats"
+  },
+  "dailybatterstat": {
+    "properties": {
+      "id": {
+        "type": "string",
+        "id": true
+      },
+      "date": {
+        "type": "date"
+      },
+      "mlbid": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "roster": {
+        "type": "string"
+      },
+      "team": {
+        "type": "string"
+      },
+      "pos": {
+        "type": "string"
+      },
+      "r": {
+        "type": "number"
+      },
+      "h": {
+        "type": "number"
+      },
+      "rbi": {
+        "type": "number"
+      },
+      "hr": {
+        "type": "number"
+      },
+      "sb": {
+        "type": "number"
+      },
+      "total": {
+        "type": "number"
+      }
+    },
+    "public": true,
+    "dataSource": "mongodb",
+    "plural": "dailybatterstats"
+  },
+  "rosterplayer": {
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "roster": {
+        "type": "string"
+      },
+      "team": {
+        "type": "string"
+      },
+      "pos": {
+        "type": "string"
+      },
+      "posType": {
+        "type": "string"
+      }
+    },
+    "public": true,
+    "dataSource": "db",
+    "plural": "rosterplayers"
+  },
+  "rosterbatter": {
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "team": {
+        "type": "string"
+      },
+      "pos": {
+        "type": "string"
+      },
+      "roster": {
+        "type": "string"
+      },
+      "mlbid": {
+        "type": "string"
+      },
+      "runs": {
+        "type": "number"
+      },
+      "hits": {
+        "type": "number"
+      },
+      "rbi": {
+        "type": "number"
+      },
+      "hr": {
+        "type": "number"
+      },
+      "sb": {
+        "type": "number"
+      },
+      "total": {
+        "type": "number"
+      },
+      "rosterStatus": {
+        "type": "string"
+      },
+      "lastUpdate": {
+        "type": "date"
+      }
+    },
+    "public": true,
+    "dataSource": "db",
+    "plural": "rosterbatters"
+  },
+  "rosterpitcher": {
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "team": {
+        "type": "string"
+      },
+      "pos": {
+        "type": "string"
+      },
+      "roster": {
+        "type": "string"
+      },
+      "posType": {
+        "type": "string"
+      },
+      "w": {
+        "type": "number"
+      },
+      "l": {
+        "type": "number"
+      },
+      "ip": {
+        "type": "number"
+      },
+      "k": {
+        "type": "number"
+      },
+      "sv": {
+        "type": "number"
+      },
+      "total": {
+        "type": "number"
+      },
+      "lastUpdate": {
+        "type": "date"
+      }
+    },
+    "public": true,
+    "dataSource": "db",
+    "plural": "rosterpitchers"
   }
 }

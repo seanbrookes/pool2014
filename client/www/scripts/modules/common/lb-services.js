@@ -5781,6 +5781,4144 @@ module.factory(
     );
   }]);
 
+/**
+ * @ngdoc object
+ * @name lbServices.Rawbatterstats
+ * @object
+ *
+ * @description
+ *
+ * A $resource object for interacting with the `Rawbatterstats` model.
+ *
+ * ## Example
+ *
+ * See
+ * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
+ * for an example of using this object.
+ *
+ */
+module.factory(
+  "Rawbatterstats",
+  ['LoopBackResource', 'LoopBackAuth', function(Resource, LoopBackAuth) {
+    return Resource(
+      urlBase + "/rawbatterstats/:id",
+      { 'id': '@id' },
+      {
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawbatterstats#create
+         * @methodOf lbServices.Rawbatterstats
+         *
+         * @description
+         *
+         * Create a new instance of the model and persist it into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "create": {
+          url: urlBase + "/rawbatterstats",
+          method: "POST",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawbatterstats#updateOrCreate
+         * @methodOf lbServices.Rawbatterstats
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "updateOrCreate": {
+          url: urlBase + "/rawbatterstats",
+          method: "PUT",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawbatterstats#upsert
+         * @methodOf lbServices.Rawbatterstats
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "upsert": {
+          url: urlBase + "/rawbatterstats",
+          method: "PUT",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawbatterstats#exists
+         * @methodOf lbServices.Rawbatterstats
+         *
+         * @description
+         *
+         * Check whether a model instance exists in the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         * - `exists` – `{*=}` - 
+         */
+        "exists": {
+          url: urlBase + "/rawbatterstats/:id/exists",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawbatterstats#findById
+         * @methodOf lbServices.Rawbatterstats
+         *
+         * @description
+         *
+         * Find a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "findById": {
+          url: urlBase + "/rawbatterstats/:id",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawbatterstats#find
+         * @methodOf lbServices.Rawbatterstats
+         *
+         * @description
+         *
+         * Find all instances of the model matched by filter from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `filter` – `{object=}` - Filter defining fields, where, orderBy, offset, and limit
+         *
+
+         * @param {Function(Array.<Object>, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "find": {
+          url: urlBase + "/rawbatterstats",
+          method: "GET",
+          isArray: true,
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawbatterstats#findOne
+         * @methodOf lbServices.Rawbatterstats
+         *
+         * @description
+         *
+         * Find first instance of the model matched by filter from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `filter` – `{object=}` - Filter defining fields, where, orderBy, offset, and limit
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "findOne": {
+          url: urlBase + "/rawbatterstats/findOne",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawbatterstats#destroyById
+         * @methodOf lbServices.Rawbatterstats
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         * This method returns no data.
+         */
+        "destroyById": {
+          url: urlBase + "/rawbatterstats/:id",
+          method: "DELETE",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawbatterstats#deleteById
+         * @methodOf lbServices.Rawbatterstats
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         * This method returns no data.
+         */
+        "deleteById": {
+          url: urlBase + "/rawbatterstats/:id",
+          method: "DELETE",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawbatterstats#removeById
+         * @methodOf lbServices.Rawbatterstats
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         * This method returns no data.
+         */
+        "removeById": {
+          url: urlBase + "/rawbatterstats/:id",
+          method: "DELETE",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawbatterstats#count
+         * @methodOf lbServices.Rawbatterstats
+         *
+         * @description
+         *
+         * Count instances of the model matched by where from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `where` – `{object=}` - Criteria to match model instances
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         * - `count` – `{number=}` - 
+         */
+        "count": {
+          url: urlBase + "/rawbatterstats/count",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawbatterstats#stats
+         * @methodOf lbServices.Rawbatterstats
+         *
+         * @description
+         *
+         * <em>
+         * (The remote method definition does not provide any description.)
+         * </em>
+         *
+         * @param {Object=} parameters Request parameters.
+         * This method does not accept any parameters. Supply an empty object.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         * - `stats` – `{object=}` - 
+         */
+        "stats": {
+          url: urlBase + "/rawbatterstats/stats",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawbatterstats#prototype$updateAttributes
+         * @methodOf lbServices.Rawbatterstats
+         *
+         * @description
+         *
+         * Update attributes for a model instance and persist it into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "prototype$updateAttributes": {
+          url: urlBase + "/rawbatterstats/:id",
+          method: "PUT",
+
+        },
+      }
+    );
+  }]);
+
+/**
+ * @ngdoc object
+ * @name lbServices.Rawpitcherstats
+ * @object
+ *
+ * @description
+ *
+ * A $resource object for interacting with the `Rawpitcherstats` model.
+ *
+ * ## Example
+ *
+ * See
+ * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
+ * for an example of using this object.
+ *
+ */
+module.factory(
+  "Rawpitcherstats",
+  ['LoopBackResource', 'LoopBackAuth', function(Resource, LoopBackAuth) {
+    return Resource(
+      urlBase + "/rawpitcherstats/:id",
+      { 'id': '@id' },
+      {
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawpitcherstats#create
+         * @methodOf lbServices.Rawpitcherstats
+         *
+         * @description
+         *
+         * Create a new instance of the model and persist it into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "create": {
+          url: urlBase + "/rawpitcherstats",
+          method: "POST",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawpitcherstats#updateOrCreate
+         * @methodOf lbServices.Rawpitcherstats
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "updateOrCreate": {
+          url: urlBase + "/rawpitcherstats",
+          method: "PUT",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawpitcherstats#upsert
+         * @methodOf lbServices.Rawpitcherstats
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "upsert": {
+          url: urlBase + "/rawpitcherstats",
+          method: "PUT",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawpitcherstats#exists
+         * @methodOf lbServices.Rawpitcherstats
+         *
+         * @description
+         *
+         * Check whether a model instance exists in the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         * - `exists` – `{*=}` - 
+         */
+        "exists": {
+          url: urlBase + "/rawpitcherstats/:id/exists",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawpitcherstats#findById
+         * @methodOf lbServices.Rawpitcherstats
+         *
+         * @description
+         *
+         * Find a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "findById": {
+          url: urlBase + "/rawpitcherstats/:id",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawpitcherstats#find
+         * @methodOf lbServices.Rawpitcherstats
+         *
+         * @description
+         *
+         * Find all instances of the model matched by filter from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `filter` – `{object=}` - Filter defining fields, where, orderBy, offset, and limit
+         *
+
+         * @param {Function(Array.<Object>, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "find": {
+          url: urlBase + "/rawpitcherstats",
+          method: "GET",
+          isArray: true,
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawpitcherstats#findOne
+         * @methodOf lbServices.Rawpitcherstats
+         *
+         * @description
+         *
+         * Find first instance of the model matched by filter from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `filter` – `{object=}` - Filter defining fields, where, orderBy, offset, and limit
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "findOne": {
+          url: urlBase + "/rawpitcherstats/findOne",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawpitcherstats#destroyById
+         * @methodOf lbServices.Rawpitcherstats
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         * This method returns no data.
+         */
+        "destroyById": {
+          url: urlBase + "/rawpitcherstats/:id",
+          method: "DELETE",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawpitcherstats#deleteById
+         * @methodOf lbServices.Rawpitcherstats
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         * This method returns no data.
+         */
+        "deleteById": {
+          url: urlBase + "/rawpitcherstats/:id",
+          method: "DELETE",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawpitcherstats#removeById
+         * @methodOf lbServices.Rawpitcherstats
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         * This method returns no data.
+         */
+        "removeById": {
+          url: urlBase + "/rawpitcherstats/:id",
+          method: "DELETE",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawpitcherstats#count
+         * @methodOf lbServices.Rawpitcherstats
+         *
+         * @description
+         *
+         * Count instances of the model matched by where from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `where` – `{object=}` - Criteria to match model instances
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         * - `count` – `{number=}` - 
+         */
+        "count": {
+          url: urlBase + "/rawpitcherstats/count",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawpitcherstats#stats
+         * @methodOf lbServices.Rawpitcherstats
+         *
+         * @description
+         *
+         * <em>
+         * (The remote method definition does not provide any description.)
+         * </em>
+         *
+         * @param {Object=} parameters Request parameters.
+         * This method does not accept any parameters. Supply an empty object.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         * - `stats` – `{object=}` - 
+         */
+        "stats": {
+          url: urlBase + "/rawpitcherstats/stats",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawpitcherstats#prototype$updateAttributes
+         * @methodOf lbServices.Rawpitcherstats
+         *
+         * @description
+         *
+         * Update attributes for a model instance and persist it into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "prototype$updateAttributes": {
+          url: urlBase + "/rawpitcherstats/:id",
+          method: "PUT",
+
+        },
+      }
+    );
+  }]);
+
+/**
+ * @ngdoc object
+ * @name lbServices.Rawpitcherid
+ * @object
+ *
+ * @description
+ *
+ * A $resource object for interacting with the `Rawpitcherid` model.
+ *
+ * ## Example
+ *
+ * See
+ * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
+ * for an example of using this object.
+ *
+ */
+module.factory(
+  "Rawpitcherid",
+  ['LoopBackResource', 'LoopBackAuth', function(Resource, LoopBackAuth) {
+    return Resource(
+      urlBase + "/rawpitcherids/:id",
+      { 'id': '@id' },
+      {
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawpitcherid#create
+         * @methodOf lbServices.Rawpitcherid
+         *
+         * @description
+         *
+         * Create a new instance of the model and persist it into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "create": {
+          url: urlBase + "/rawpitcherids",
+          method: "POST",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawpitcherid#updateOrCreate
+         * @methodOf lbServices.Rawpitcherid
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "updateOrCreate": {
+          url: urlBase + "/rawpitcherids",
+          method: "PUT",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawpitcherid#upsert
+         * @methodOf lbServices.Rawpitcherid
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "upsert": {
+          url: urlBase + "/rawpitcherids",
+          method: "PUT",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawpitcherid#exists
+         * @methodOf lbServices.Rawpitcherid
+         *
+         * @description
+         *
+         * Check whether a model instance exists in the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         * - `exists` – `{*=}` - 
+         */
+        "exists": {
+          url: urlBase + "/rawpitcherids/:id/exists",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawpitcherid#findById
+         * @methodOf lbServices.Rawpitcherid
+         *
+         * @description
+         *
+         * Find a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "findById": {
+          url: urlBase + "/rawpitcherids/:id",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawpitcherid#find
+         * @methodOf lbServices.Rawpitcherid
+         *
+         * @description
+         *
+         * Find all instances of the model matched by filter from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `filter` – `{object=}` - Filter defining fields, where, orderBy, offset, and limit
+         *
+
+         * @param {Function(Array.<Object>, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "find": {
+          url: urlBase + "/rawpitcherids",
+          method: "GET",
+          isArray: true,
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawpitcherid#findOne
+         * @methodOf lbServices.Rawpitcherid
+         *
+         * @description
+         *
+         * Find first instance of the model matched by filter from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `filter` – `{object=}` - Filter defining fields, where, orderBy, offset, and limit
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "findOne": {
+          url: urlBase + "/rawpitcherids/findOne",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawpitcherid#destroyById
+         * @methodOf lbServices.Rawpitcherid
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         * This method returns no data.
+         */
+        "destroyById": {
+          url: urlBase + "/rawpitcherids/:id",
+          method: "DELETE",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawpitcherid#deleteById
+         * @methodOf lbServices.Rawpitcherid
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         * This method returns no data.
+         */
+        "deleteById": {
+          url: urlBase + "/rawpitcherids/:id",
+          method: "DELETE",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawpitcherid#removeById
+         * @methodOf lbServices.Rawpitcherid
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         * This method returns no data.
+         */
+        "removeById": {
+          url: urlBase + "/rawpitcherids/:id",
+          method: "DELETE",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawpitcherid#count
+         * @methodOf lbServices.Rawpitcherid
+         *
+         * @description
+         *
+         * Count instances of the model matched by where from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `where` – `{object=}` - Criteria to match model instances
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         * - `count` – `{number=}` - 
+         */
+        "count": {
+          url: urlBase + "/rawpitcherids/count",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawpitcherid#prototype$updateAttributes
+         * @methodOf lbServices.Rawpitcherid
+         *
+         * @description
+         *
+         * Update attributes for a model instance and persist it into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "prototype$updateAttributes": {
+          url: urlBase + "/rawpitcherids/:id",
+          method: "PUT",
+
+        },
+      }
+    );
+  }]);
+
+/**
+ * @ngdoc object
+ * @name lbServices.Rawbatterid
+ * @object
+ *
+ * @description
+ *
+ * A $resource object for interacting with the `Rawbatterid` model.
+ *
+ * ## Example
+ *
+ * See
+ * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
+ * for an example of using this object.
+ *
+ */
+module.factory(
+  "Rawbatterid",
+  ['LoopBackResource', 'LoopBackAuth', function(Resource, LoopBackAuth) {
+    return Resource(
+      urlBase + "/rawbatterids/:id",
+      { 'id': '@id' },
+      {
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawbatterid#create
+         * @methodOf lbServices.Rawbatterid
+         *
+         * @description
+         *
+         * Create a new instance of the model and persist it into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "create": {
+          url: urlBase + "/rawbatterids",
+          method: "POST",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawbatterid#updateOrCreate
+         * @methodOf lbServices.Rawbatterid
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "updateOrCreate": {
+          url: urlBase + "/rawbatterids",
+          method: "PUT",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawbatterid#upsert
+         * @methodOf lbServices.Rawbatterid
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "upsert": {
+          url: urlBase + "/rawbatterids",
+          method: "PUT",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawbatterid#exists
+         * @methodOf lbServices.Rawbatterid
+         *
+         * @description
+         *
+         * Check whether a model instance exists in the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         * - `exists` – `{*=}` - 
+         */
+        "exists": {
+          url: urlBase + "/rawbatterids/:id/exists",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawbatterid#findById
+         * @methodOf lbServices.Rawbatterid
+         *
+         * @description
+         *
+         * Find a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "findById": {
+          url: urlBase + "/rawbatterids/:id",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawbatterid#find
+         * @methodOf lbServices.Rawbatterid
+         *
+         * @description
+         *
+         * Find all instances of the model matched by filter from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `filter` – `{object=}` - Filter defining fields, where, orderBy, offset, and limit
+         *
+
+         * @param {Function(Array.<Object>, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "find": {
+          url: urlBase + "/rawbatterids",
+          method: "GET",
+          isArray: true,
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawbatterid#findOne
+         * @methodOf lbServices.Rawbatterid
+         *
+         * @description
+         *
+         * Find first instance of the model matched by filter from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `filter` – `{object=}` - Filter defining fields, where, orderBy, offset, and limit
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "findOne": {
+          url: urlBase + "/rawbatterids/findOne",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawbatterid#destroyById
+         * @methodOf lbServices.Rawbatterid
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         * This method returns no data.
+         */
+        "destroyById": {
+          url: urlBase + "/rawbatterids/:id",
+          method: "DELETE",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawbatterid#deleteById
+         * @methodOf lbServices.Rawbatterid
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         * This method returns no data.
+         */
+        "deleteById": {
+          url: urlBase + "/rawbatterids/:id",
+          method: "DELETE",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawbatterid#removeById
+         * @methodOf lbServices.Rawbatterid
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         * This method returns no data.
+         */
+        "removeById": {
+          url: urlBase + "/rawbatterids/:id",
+          method: "DELETE",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawbatterid#count
+         * @methodOf lbServices.Rawbatterid
+         *
+         * @description
+         *
+         * Count instances of the model matched by where from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `where` – `{object=}` - Criteria to match model instances
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         * - `count` – `{number=}` - 
+         */
+        "count": {
+          url: urlBase + "/rawbatterids/count",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rawbatterid#prototype$updateAttributes
+         * @methodOf lbServices.Rawbatterid
+         *
+         * @description
+         *
+         * Update attributes for a model instance and persist it into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "prototype$updateAttributes": {
+          url: urlBase + "/rawbatterids/:id",
+          method: "PUT",
+
+        },
+      }
+    );
+  }]);
+
+/**
+ * @ngdoc object
+ * @name lbServices.Statupdate
+ * @object
+ *
+ * @description
+ *
+ * A $resource object for interacting with the `Statupdate` model.
+ *
+ * ## Example
+ *
+ * See
+ * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
+ * for an example of using this object.
+ *
+ */
+module.factory(
+  "Statupdate",
+  ['LoopBackResource', 'LoopBackAuth', function(Resource, LoopBackAuth) {
+    return Resource(
+      urlBase + "/statupdates/:id",
+      { 'id': '@id' },
+      {
+        /**
+         * @ngdoc method
+         * @name lbServices.Statupdate#create
+         * @methodOf lbServices.Statupdate
+         *
+         * @description
+         *
+         * Create a new instance of the model and persist it into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "create": {
+          url: urlBase + "/statupdates",
+          method: "POST",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Statupdate#updateOrCreate
+         * @methodOf lbServices.Statupdate
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "updateOrCreate": {
+          url: urlBase + "/statupdates",
+          method: "PUT",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Statupdate#upsert
+         * @methodOf lbServices.Statupdate
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "upsert": {
+          url: urlBase + "/statupdates",
+          method: "PUT",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Statupdate#exists
+         * @methodOf lbServices.Statupdate
+         *
+         * @description
+         *
+         * Check whether a model instance exists in the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         * - `exists` – `{*=}` - 
+         */
+        "exists": {
+          url: urlBase + "/statupdates/:id/exists",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Statupdate#findById
+         * @methodOf lbServices.Statupdate
+         *
+         * @description
+         *
+         * Find a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "findById": {
+          url: urlBase + "/statupdates/:id",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Statupdate#find
+         * @methodOf lbServices.Statupdate
+         *
+         * @description
+         *
+         * Find all instances of the model matched by filter from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `filter` – `{object=}` - Filter defining fields, where, orderBy, offset, and limit
+         *
+
+         * @param {Function(Array.<Object>, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "find": {
+          url: urlBase + "/statupdates",
+          method: "GET",
+          isArray: true,
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Statupdate#findOne
+         * @methodOf lbServices.Statupdate
+         *
+         * @description
+         *
+         * Find first instance of the model matched by filter from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `filter` – `{object=}` - Filter defining fields, where, orderBy, offset, and limit
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "findOne": {
+          url: urlBase + "/statupdates/findOne",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Statupdate#destroyById
+         * @methodOf lbServices.Statupdate
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         * This method returns no data.
+         */
+        "destroyById": {
+          url: urlBase + "/statupdates/:id",
+          method: "DELETE",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Statupdate#deleteById
+         * @methodOf lbServices.Statupdate
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         * This method returns no data.
+         */
+        "deleteById": {
+          url: urlBase + "/statupdates/:id",
+          method: "DELETE",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Statupdate#removeById
+         * @methodOf lbServices.Statupdate
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         * This method returns no data.
+         */
+        "removeById": {
+          url: urlBase + "/statupdates/:id",
+          method: "DELETE",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Statupdate#count
+         * @methodOf lbServices.Statupdate
+         *
+         * @description
+         *
+         * Count instances of the model matched by where from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `where` – `{object=}` - Criteria to match model instances
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         * - `count` – `{number=}` - 
+         */
+        "count": {
+          url: urlBase + "/statupdates/count",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Statupdate#prototype$updateAttributes
+         * @methodOf lbServices.Statupdate
+         *
+         * @description
+         *
+         * Update attributes for a model instance and persist it into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "prototype$updateAttributes": {
+          url: urlBase + "/statupdates/:id",
+          method: "PUT",
+
+        },
+      }
+    );
+  }]);
+
+/**
+ * @ngdoc object
+ * @name lbServices.Dailypitcherstat
+ * @object
+ *
+ * @description
+ *
+ * A $resource object for interacting with the `Dailypitcherstat` model.
+ *
+ * ## Example
+ *
+ * See
+ * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
+ * for an example of using this object.
+ *
+ */
+module.factory(
+  "Dailypitcherstat",
+  ['LoopBackResource', 'LoopBackAuth', function(Resource, LoopBackAuth) {
+    return Resource(
+      urlBase + "/dailypitcherstats/:id",
+      { 'id': '@id' },
+      {
+        /**
+         * @ngdoc method
+         * @name lbServices.Dailypitcherstat#create
+         * @methodOf lbServices.Dailypitcherstat
+         *
+         * @description
+         *
+         * Create a new instance of the model and persist it into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "create": {
+          url: urlBase + "/dailypitcherstats",
+          method: "POST",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Dailypitcherstat#updateOrCreate
+         * @methodOf lbServices.Dailypitcherstat
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "updateOrCreate": {
+          url: urlBase + "/dailypitcherstats",
+          method: "PUT",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Dailypitcherstat#upsert
+         * @methodOf lbServices.Dailypitcherstat
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "upsert": {
+          url: urlBase + "/dailypitcherstats",
+          method: "PUT",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Dailypitcherstat#exists
+         * @methodOf lbServices.Dailypitcherstat
+         *
+         * @description
+         *
+         * Check whether a model instance exists in the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         * - `exists` – `{*=}` - 
+         */
+        "exists": {
+          url: urlBase + "/dailypitcherstats/:id/exists",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Dailypitcherstat#findById
+         * @methodOf lbServices.Dailypitcherstat
+         *
+         * @description
+         *
+         * Find a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "findById": {
+          url: urlBase + "/dailypitcherstats/:id",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Dailypitcherstat#find
+         * @methodOf lbServices.Dailypitcherstat
+         *
+         * @description
+         *
+         * Find all instances of the model matched by filter from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `filter` – `{object=}` - Filter defining fields, where, orderBy, offset, and limit
+         *
+
+         * @param {Function(Array.<Object>, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "find": {
+          url: urlBase + "/dailypitcherstats",
+          method: "GET",
+          isArray: true,
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Dailypitcherstat#findOne
+         * @methodOf lbServices.Dailypitcherstat
+         *
+         * @description
+         *
+         * Find first instance of the model matched by filter from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `filter` – `{object=}` - Filter defining fields, where, orderBy, offset, and limit
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "findOne": {
+          url: urlBase + "/dailypitcherstats/findOne",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Dailypitcherstat#destroyById
+         * @methodOf lbServices.Dailypitcherstat
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         * This method returns no data.
+         */
+        "destroyById": {
+          url: urlBase + "/dailypitcherstats/:id",
+          method: "DELETE",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Dailypitcherstat#deleteById
+         * @methodOf lbServices.Dailypitcherstat
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         * This method returns no data.
+         */
+        "deleteById": {
+          url: urlBase + "/dailypitcherstats/:id",
+          method: "DELETE",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Dailypitcherstat#removeById
+         * @methodOf lbServices.Dailypitcherstat
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         * This method returns no data.
+         */
+        "removeById": {
+          url: urlBase + "/dailypitcherstats/:id",
+          method: "DELETE",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Dailypitcherstat#count
+         * @methodOf lbServices.Dailypitcherstat
+         *
+         * @description
+         *
+         * Count instances of the model matched by where from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `where` – `{object=}` - Criteria to match model instances
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         * - `count` – `{number=}` - 
+         */
+        "count": {
+          url: urlBase + "/dailypitcherstats/count",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Dailypitcherstat#prototype$updateAttributes
+         * @methodOf lbServices.Dailypitcherstat
+         *
+         * @description
+         *
+         * Update attributes for a model instance and persist it into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "prototype$updateAttributes": {
+          url: urlBase + "/dailypitcherstats/:id",
+          method: "PUT",
+
+        },
+      }
+    );
+  }]);
+
+/**
+ * @ngdoc object
+ * @name lbServices.Dailybatterstat
+ * @object
+ *
+ * @description
+ *
+ * A $resource object for interacting with the `Dailybatterstat` model.
+ *
+ * ## Example
+ *
+ * See
+ * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
+ * for an example of using this object.
+ *
+ */
+module.factory(
+  "Dailybatterstat",
+  ['LoopBackResource', 'LoopBackAuth', function(Resource, LoopBackAuth) {
+    return Resource(
+      urlBase + "/dailybatterstats/:id",
+      { 'id': '@id' },
+      {
+        /**
+         * @ngdoc method
+         * @name lbServices.Dailybatterstat#create
+         * @methodOf lbServices.Dailybatterstat
+         *
+         * @description
+         *
+         * Create a new instance of the model and persist it into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "create": {
+          url: urlBase + "/dailybatterstats",
+          method: "POST",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Dailybatterstat#updateOrCreate
+         * @methodOf lbServices.Dailybatterstat
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "updateOrCreate": {
+          url: urlBase + "/dailybatterstats",
+          method: "PUT",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Dailybatterstat#upsert
+         * @methodOf lbServices.Dailybatterstat
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "upsert": {
+          url: urlBase + "/dailybatterstats",
+          method: "PUT",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Dailybatterstat#exists
+         * @methodOf lbServices.Dailybatterstat
+         *
+         * @description
+         *
+         * Check whether a model instance exists in the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         * - `exists` – `{*=}` - 
+         */
+        "exists": {
+          url: urlBase + "/dailybatterstats/:id/exists",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Dailybatterstat#findById
+         * @methodOf lbServices.Dailybatterstat
+         *
+         * @description
+         *
+         * Find a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "findById": {
+          url: urlBase + "/dailybatterstats/:id",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Dailybatterstat#find
+         * @methodOf lbServices.Dailybatterstat
+         *
+         * @description
+         *
+         * Find all instances of the model matched by filter from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `filter` – `{object=}` - Filter defining fields, where, orderBy, offset, and limit
+         *
+
+         * @param {Function(Array.<Object>, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "find": {
+          url: urlBase + "/dailybatterstats",
+          method: "GET",
+          isArray: true,
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Dailybatterstat#findOne
+         * @methodOf lbServices.Dailybatterstat
+         *
+         * @description
+         *
+         * Find first instance of the model matched by filter from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `filter` – `{object=}` - Filter defining fields, where, orderBy, offset, and limit
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "findOne": {
+          url: urlBase + "/dailybatterstats/findOne",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Dailybatterstat#destroyById
+         * @methodOf lbServices.Dailybatterstat
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         * This method returns no data.
+         */
+        "destroyById": {
+          url: urlBase + "/dailybatterstats/:id",
+          method: "DELETE",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Dailybatterstat#deleteById
+         * @methodOf lbServices.Dailybatterstat
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         * This method returns no data.
+         */
+        "deleteById": {
+          url: urlBase + "/dailybatterstats/:id",
+          method: "DELETE",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Dailybatterstat#removeById
+         * @methodOf lbServices.Dailybatterstat
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         * This method returns no data.
+         */
+        "removeById": {
+          url: urlBase + "/dailybatterstats/:id",
+          method: "DELETE",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Dailybatterstat#count
+         * @methodOf lbServices.Dailybatterstat
+         *
+         * @description
+         *
+         * Count instances of the model matched by where from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `where` – `{object=}` - Criteria to match model instances
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         * - `count` – `{number=}` - 
+         */
+        "count": {
+          url: urlBase + "/dailybatterstats/count",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Dailybatterstat#prototype$updateAttributes
+         * @methodOf lbServices.Dailybatterstat
+         *
+         * @description
+         *
+         * Update attributes for a model instance and persist it into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "prototype$updateAttributes": {
+          url: urlBase + "/dailybatterstats/:id",
+          method: "PUT",
+
+        },
+      }
+    );
+  }]);
+
+/**
+ * @ngdoc object
+ * @name lbServices.Rosterplayer
+ * @object
+ *
+ * @description
+ *
+ * A $resource object for interacting with the `Rosterplayer` model.
+ *
+ * ## Example
+ *
+ * See
+ * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
+ * for an example of using this object.
+ *
+ */
+module.factory(
+  "Rosterplayer",
+  ['LoopBackResource', 'LoopBackAuth', function(Resource, LoopBackAuth) {
+    return Resource(
+      urlBase + "/rosterplayers/:id",
+      { 'id': '@id' },
+      {
+        /**
+         * @ngdoc method
+         * @name lbServices.Rosterplayer#create
+         * @methodOf lbServices.Rosterplayer
+         *
+         * @description
+         *
+         * Create a new instance of the model and persist it into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "create": {
+          url: urlBase + "/rosterplayers",
+          method: "POST",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rosterplayer#updateOrCreate
+         * @methodOf lbServices.Rosterplayer
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "updateOrCreate": {
+          url: urlBase + "/rosterplayers",
+          method: "PUT",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rosterplayer#upsert
+         * @methodOf lbServices.Rosterplayer
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "upsert": {
+          url: urlBase + "/rosterplayers",
+          method: "PUT",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rosterplayer#exists
+         * @methodOf lbServices.Rosterplayer
+         *
+         * @description
+         *
+         * Check whether a model instance exists in the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         * - `exists` – `{*=}` - 
+         */
+        "exists": {
+          url: urlBase + "/rosterplayers/:id/exists",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rosterplayer#findById
+         * @methodOf lbServices.Rosterplayer
+         *
+         * @description
+         *
+         * Find a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "findById": {
+          url: urlBase + "/rosterplayers/:id",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rosterplayer#find
+         * @methodOf lbServices.Rosterplayer
+         *
+         * @description
+         *
+         * Find all instances of the model matched by filter from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `filter` – `{object=}` - Filter defining fields, where, orderBy, offset, and limit
+         *
+
+         * @param {Function(Array.<Object>, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "find": {
+          url: urlBase + "/rosterplayers",
+          method: "GET",
+          isArray: true,
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rosterplayer#findOne
+         * @methodOf lbServices.Rosterplayer
+         *
+         * @description
+         *
+         * Find first instance of the model matched by filter from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `filter` – `{object=}` - Filter defining fields, where, orderBy, offset, and limit
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "findOne": {
+          url: urlBase + "/rosterplayers/findOne",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rosterplayer#destroyById
+         * @methodOf lbServices.Rosterplayer
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         * This method returns no data.
+         */
+        "destroyById": {
+          url: urlBase + "/rosterplayers/:id",
+          method: "DELETE",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rosterplayer#deleteById
+         * @methodOf lbServices.Rosterplayer
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         * This method returns no data.
+         */
+        "deleteById": {
+          url: urlBase + "/rosterplayers/:id",
+          method: "DELETE",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rosterplayer#removeById
+         * @methodOf lbServices.Rosterplayer
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         * This method returns no data.
+         */
+        "removeById": {
+          url: urlBase + "/rosterplayers/:id",
+          method: "DELETE",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rosterplayer#count
+         * @methodOf lbServices.Rosterplayer
+         *
+         * @description
+         *
+         * Count instances of the model matched by where from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `where` – `{object=}` - Criteria to match model instances
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         * - `count` – `{number=}` - 
+         */
+        "count": {
+          url: urlBase + "/rosterplayers/count",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rosterplayer#prototype$updateAttributes
+         * @methodOf lbServices.Rosterplayer
+         *
+         * @description
+         *
+         * Update attributes for a model instance and persist it into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "prototype$updateAttributes": {
+          url: urlBase + "/rosterplayers/:id",
+          method: "PUT",
+
+        },
+      }
+    );
+  }]);
+
+/**
+ * @ngdoc object
+ * @name lbServices.Rosterbatter
+ * @object
+ *
+ * @description
+ *
+ * A $resource object for interacting with the `Rosterbatter` model.
+ *
+ * ## Example
+ *
+ * See
+ * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
+ * for an example of using this object.
+ *
+ */
+module.factory(
+  "Rosterbatter",
+  ['LoopBackResource', 'LoopBackAuth', function(Resource, LoopBackAuth) {
+    return Resource(
+      urlBase + "/rosterbatters/:id",
+      { 'id': '@id' },
+      {
+        /**
+         * @ngdoc method
+         * @name lbServices.Rosterbatter#create
+         * @methodOf lbServices.Rosterbatter
+         *
+         * @description
+         *
+         * Create a new instance of the model and persist it into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "create": {
+          url: urlBase + "/rosterbatters",
+          method: "POST",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rosterbatter#updateOrCreate
+         * @methodOf lbServices.Rosterbatter
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "updateOrCreate": {
+          url: urlBase + "/rosterbatters",
+          method: "PUT",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rosterbatter#upsert
+         * @methodOf lbServices.Rosterbatter
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "upsert": {
+          url: urlBase + "/rosterbatters",
+          method: "PUT",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rosterbatter#exists
+         * @methodOf lbServices.Rosterbatter
+         *
+         * @description
+         *
+         * Check whether a model instance exists in the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         * - `exists` – `{*=}` - 
+         */
+        "exists": {
+          url: urlBase + "/rosterbatters/:id/exists",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rosterbatter#findById
+         * @methodOf lbServices.Rosterbatter
+         *
+         * @description
+         *
+         * Find a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "findById": {
+          url: urlBase + "/rosterbatters/:id",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rosterbatter#find
+         * @methodOf lbServices.Rosterbatter
+         *
+         * @description
+         *
+         * Find all instances of the model matched by filter from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `filter` – `{object=}` - Filter defining fields, where, orderBy, offset, and limit
+         *
+
+         * @param {Function(Array.<Object>, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "find": {
+          url: urlBase + "/rosterbatters",
+          method: "GET",
+          isArray: true,
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rosterbatter#findOne
+         * @methodOf lbServices.Rosterbatter
+         *
+         * @description
+         *
+         * Find first instance of the model matched by filter from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `filter` – `{object=}` - Filter defining fields, where, orderBy, offset, and limit
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "findOne": {
+          url: urlBase + "/rosterbatters/findOne",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rosterbatter#destroyById
+         * @methodOf lbServices.Rosterbatter
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         * This method returns no data.
+         */
+        "destroyById": {
+          url: urlBase + "/rosterbatters/:id",
+          method: "DELETE",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rosterbatter#deleteById
+         * @methodOf lbServices.Rosterbatter
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         * This method returns no data.
+         */
+        "deleteById": {
+          url: urlBase + "/rosterbatters/:id",
+          method: "DELETE",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rosterbatter#removeById
+         * @methodOf lbServices.Rosterbatter
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         * This method returns no data.
+         */
+        "removeById": {
+          url: urlBase + "/rosterbatters/:id",
+          method: "DELETE",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rosterbatter#count
+         * @methodOf lbServices.Rosterbatter
+         *
+         * @description
+         *
+         * Count instances of the model matched by where from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `where` – `{object=}` - Criteria to match model instances
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         * - `count` – `{number=}` - 
+         */
+        "count": {
+          url: urlBase + "/rosterbatters/count",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rosterbatter#prototype$updateAttributes
+         * @methodOf lbServices.Rosterbatter
+         *
+         * @description
+         *
+         * Update attributes for a model instance and persist it into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "prototype$updateAttributes": {
+          url: urlBase + "/rosterbatters/:id",
+          method: "PUT",
+
+        },
+      }
+    );
+  }]);
+
+/**
+ * @ngdoc object
+ * @name lbServices.Rosterpitcher
+ * @object
+ *
+ * @description
+ *
+ * A $resource object for interacting with the `Rosterpitcher` model.
+ *
+ * ## Example
+ *
+ * See
+ * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
+ * for an example of using this object.
+ *
+ */
+module.factory(
+  "Rosterpitcher",
+  ['LoopBackResource', 'LoopBackAuth', function(Resource, LoopBackAuth) {
+    return Resource(
+      urlBase + "/rosterpitchers/:id",
+      { 'id': '@id' },
+      {
+        /**
+         * @ngdoc method
+         * @name lbServices.Rosterpitcher#create
+         * @methodOf lbServices.Rosterpitcher
+         *
+         * @description
+         *
+         * Create a new instance of the model and persist it into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "create": {
+          url: urlBase + "/rosterpitchers",
+          method: "POST",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rosterpitcher#updateOrCreate
+         * @methodOf lbServices.Rosterpitcher
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "updateOrCreate": {
+          url: urlBase + "/rosterpitchers",
+          method: "PUT",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rosterpitcher#upsert
+         * @methodOf lbServices.Rosterpitcher
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "upsert": {
+          url: urlBase + "/rosterpitchers",
+          method: "PUT",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rosterpitcher#exists
+         * @methodOf lbServices.Rosterpitcher
+         *
+         * @description
+         *
+         * Check whether a model instance exists in the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         * - `exists` – `{*=}` - 
+         */
+        "exists": {
+          url: urlBase + "/rosterpitchers/:id/exists",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rosterpitcher#findById
+         * @methodOf lbServices.Rosterpitcher
+         *
+         * @description
+         *
+         * Find a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "findById": {
+          url: urlBase + "/rosterpitchers/:id",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rosterpitcher#find
+         * @methodOf lbServices.Rosterpitcher
+         *
+         * @description
+         *
+         * Find all instances of the model matched by filter from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `filter` – `{object=}` - Filter defining fields, where, orderBy, offset, and limit
+         *
+
+         * @param {Function(Array.<Object>, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "find": {
+          url: urlBase + "/rosterpitchers",
+          method: "GET",
+          isArray: true,
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rosterpitcher#findOne
+         * @methodOf lbServices.Rosterpitcher
+         *
+         * @description
+         *
+         * Find first instance of the model matched by filter from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `filter` – `{object=}` - Filter defining fields, where, orderBy, offset, and limit
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "findOne": {
+          url: urlBase + "/rosterpitchers/findOne",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rosterpitcher#destroyById
+         * @methodOf lbServices.Rosterpitcher
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         * This method returns no data.
+         */
+        "destroyById": {
+          url: urlBase + "/rosterpitchers/:id",
+          method: "DELETE",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rosterpitcher#deleteById
+         * @methodOf lbServices.Rosterpitcher
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         * This method returns no data.
+         */
+        "deleteById": {
+          url: urlBase + "/rosterpitchers/:id",
+          method: "DELETE",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rosterpitcher#removeById
+         * @methodOf lbServices.Rosterpitcher
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `id` – `{*}` - Model id
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         * This method returns no data.
+         */
+        "removeById": {
+          url: urlBase + "/rosterpitchers/:id",
+          method: "DELETE",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rosterpitcher#count
+         * @methodOf lbServices.Rosterpitcher
+         *
+         * @description
+         *
+         * Count instances of the model matched by where from the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * Object properties:
+         *
+         * - `where` – `{object=}` - Criteria to match model instances
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         * - `count` – `{number=}` - 
+         */
+        "count": {
+          url: urlBase + "/rosterpitchers/count",
+          method: "GET",
+
+        },
+        /**
+         * @ngdoc method
+         * @name lbServices.Rosterpitcher#prototype$updateAttributes
+         * @methodOf lbServices.Rosterpitcher
+         *
+         * @description
+         *
+         * Update attributes for a model instance and persist it into the data source
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         * @param {Object} postData Request data.
+         * This method expects a subset of model properties as request parameters.
+         *
+
+         * @param {Function(Object, Object)=} successCb
+         *    Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {Function(Object)=} errorCb Error callback with one argument:
+         *    `httpResponse`.
+         *
+         * @return {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         */
+        "prototype$updateAttributes": {
+          url: urlBase + "/rosterpitchers/:id",
+          method: "PUT",
+
+        },
+      }
+    );
+  }]);
+
 
 module
   .factory('LoopBackAuth', function() {

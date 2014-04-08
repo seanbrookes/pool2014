@@ -28,6 +28,7 @@
           <a class="navbar-brand" href="#roster/mashers">Mashers</a>
           <a class="navbar-brand" href="#roster/rallycaps">Rally Caps</a>
           <a class="navbar-brand" href="#roster/stallions">Stallions</a>
+          <button ng-click="refreshStats()">refresh stats</button>
 
         </div>
       </div>
@@ -55,6 +56,7 @@
   <script src="./scripts/vendor/lib/ng-grid.js"></script>
   <script src="./scripts/vendor/lib/angular-resource.js"></script>
   <script src="http://angular-ui.github.com/bootstrap/ui-bootstrap-tpls-0.6.0.js"></script>
+  <script src="./scripts/vendor/moment.min.js"></script>
   <script src="./scripts/vendor/lib/ui-bootstrap.js"></script>
   <script src="./scripts/vendor/lib/ui-bootstrap-tpls.js"></script>
 
@@ -92,6 +94,10 @@
   <script src="./scripts/modules/home/home.module.js"></script>
   <script src="./scripts/modules/home/home.services.js"></script>
   <script src="./scripts/modules/home/home.controllers.js"></script>
+
+  <script src="./scripts/modules/admin/admin.module.js"></script>
+  <script src="./scripts/modules/admin/admin.services.js"></script>
+  <script src="./scripts/modules/admin/admin.controllers.js"></script>
 
   <script src="./scripts/modules/auth/auth.module.js"></script>
   <script src="./scripts/modules/auth/auth.controllers.js"></script>
