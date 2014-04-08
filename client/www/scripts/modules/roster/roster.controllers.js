@@ -135,9 +135,6 @@ Roster.controller('RosterMainController',[
 
     $scope.postToHitterList = function(){
 
-
-
-
       console.log('POST THESE PLAYERS: ' + $scope.players);
       angular.forEach($scope.players, function(value, key){
         var playerObj = value;
