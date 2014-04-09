@@ -33,7 +33,7 @@ app.config([
   '$urlRouterProvider',
   function ($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('/draft');
+    $urlRouterProvider.otherwise('/');
 
     $stateProvider.
       state('home', {
