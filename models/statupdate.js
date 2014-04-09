@@ -178,18 +178,18 @@ StatUpdate.beforeRemote('create', function(ctx, user, next) {
                     };
 
 
-                    hitterStatPackageObj.total = getHitterTotal(currRawHitter);
+                    hitterStatPackageObj.total = getHitterTotal(hitterStatPackageObj);
 
 
-
-                    DailyBatterStat.create(hitterStatPackageObj,
-                      function(response){
-                        console.log('yay added stat');
-                      },
-                      function(response){
-                        console.log('sad no stat: ' + JSON.stringify(response));
-                      }
-                    );
+//
+//                    DailyBatterStat.create(hitterStatPackageObj,
+//                      function(response){
+//                        console.log('yay added stat');
+//                      },
+//                      function(response){
+//                        console.log('sad no stat: ' + JSON.stringify(response));
+//                      }
+//                    );
 
 
 
@@ -241,23 +241,24 @@ StatUpdate.beforeRemote('create', function(ctx, user, next) {
                     var pitcherTotal = 0;
                     // figure out if closer or starter
                     if (currentPlayer.pos.toLowerCase() == 'sp'){
-                      pitcherStatPackageObj.total = getStarterTotal(currRawPitcher);
+                      pitcherStatPackageObj.total = getStarterTotal(pitcherStatPackageObj);
                     }
                     else if (currentPlayer.pos.toLowerCase() === 'rp'){
-                      pitcherStatPackageObj.total = getCloserTotal(currRawPitcher);
+                      pitcherStatPackageObj.total = getCloserTotal(pitcherStatPackageObj);
                     }
                     else {
                       console.log('cannot determine pitcher type:' + JSON.stringify(currentPlayer) );
                     }
 
-                    DailyPitcherStat.create(pitcherStatPackageObj,
-                      function(response){
-                        console.log('yay added pitcher');
-                      },
-                      function(response){
-                        console.log('sad no stat: ' + JSON.stringify(response));
-                      }
-                    );
+
+//                    DailyPitcherStat.create(pitcherStatPackageObj,
+//                      function(response){
+//                        console.log('yay added pitcher');
+//                      },
+//                      function(response){
+//                        console.log('sad no stat: ' + JSON.stringify(response));
+//                      }
+//                    );
                     break;
                   }
                 }
@@ -283,14 +284,14 @@ StatUpdate.beforeRemote('create', function(ctx, user, next) {
           status:'good',
           type:'stats'
         };
-        StatUpdate.create(statUpdateObj,
-          function(response){
-            console.log('yay added stat update');
-          },
-          function(response){
-            console.log('sad no stat update: ' + JSON.stringify(response));
-          }
-        );
+//        StatUpdate.create(statUpdateObj,
+//          function(response){
+//            console.log('yay added stat update');
+//          },
+//          function(response){
+//            console.log('sad no stat update: ' + JSON.stringify(response));
+//          }
+//        );
 
       });
 
@@ -351,13 +352,13 @@ StatUpdate.beforeRemote('create', function(ctx, user, next) {
     };
 
     if (pitcher.l) {
-      baseValObj.l = pitcher.l;
+      baseValObj.l = parseInt(pitcher.l);
     }
     if (pitcher.w) {
-      baseValObj.w = pitcher.w;
+      baseValObj.w = parseInt(pitcher.w);
     }
     if (pitcher.k) {
-      baseValObj.k = pitcher.k;
+      baseValObj.k = parseInt(pitcher.k);
     }
 
     try{
@@ -370,6 +371,22 @@ StatUpdate.beforeRemote('create', function(ctx, user, next) {
     if (!isInt(totalVal)){
       totalVal = parseFloat(totalVal).toFixed(2);
     }
+
+    console.log('|');
+    console.log('|');
+    console.log('|');
+    console.log('|');
+    console.log('|  Starter: ' + pitcher.name);
+    console.log('|');
+    console.log('|  w[' + pitcher.w + ']  l[' + pitcher.l + ']   k[' + pitcher.k + ']');
+    console.log('|');
+    console.log('| total[' + totalVal + ']');
+    console.log('|');
+    console.log('|');
+    console.log('|');
+    console.log('|');
+
+
     return totalVal;
   };
   var getCloserTotal = function(pitcher){
@@ -382,25 +399,41 @@ StatUpdate.beforeRemote('create', function(ctx, user, next) {
       ip:0
     };
     if (pitcher.sv){
-      baseValObj.sv = pitcher.sv;
+      baseValObj.sv = parseInt(pitcher.sv);
     }
     if (pitcher.l) {
-      baseValObj.l = pitcher.l;
+      baseValObj.l = parseInt(pitcher.l);
     }
     if (pitcher.w) {
-      baseValObj.w = pitcher.w;
+      baseValObj.w = parseInt(pitcher.w);
     }
     if (pitcher.k) {
-      baseValObj.k = pitcher.k;
+      baseValObj.k = parseInt(pitcher.k);
     }
     if (pitcher.ip) {
-      baseValObj.l = pitcher.ip;
+      baseValObj.l = parseInt(pitcher.ip);
     }
     totalVal = (baseValObj.sv * 7)  + (baseValObj.w * 6) + (baseValObj.k / 2) + (baseValObj.ip / 2);
 
     if (!isInt(totalVal)){
       totalVal = parseFloat(totalVal).toFixed(2);
     }
+
+    console.log('|');
+    console.log('|');
+    console.log('|');
+    console.log('|');
+    console.log('|  Starter: ' + pitcher.name);
+    console.log('|');
+    console.log('|  w[' + pitcher.w + ']  l[' + pitcher.l + ']   k[' + pitcher.k + ' ip[' + pitcher.ip + ']  sv[' + pitcher.sv + ']');
+    console.log('|');
+    console.log('| total[' + totalVal + ']');
+    console.log('|');
+    console.log('|');
+    console.log('|');
+    console.log('|');
+
+
     return totalVal;
 
 

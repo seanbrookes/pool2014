@@ -25,8 +25,8 @@ Roster.controller('RosterMainController',[
 //    };
     var filter = {
       'filter[where][roster]':$scope.currentRosterName,
-      'filter[order]':'lastUpdate DESC',
-      'filter[order]':'pos'
+      'filter[order]':'mlbid',
+      'filter[order]':'lastUpdate DESC'
     };
    // $scope.currentRoster = Roster.query(filter);
 
