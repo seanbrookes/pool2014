@@ -13,6 +13,10 @@ Roster.controller('RosterMainController',[
     $scope.currentRosterName = $stateParams.name;
     var authUser = localStorage.getItem('homeRoster');
     $scope.canEdit = false;
+    $scope.batterTotal = 0;
+    $scope.starterTotal = 0;
+    $scope.closerTotal = 0;
+
     $scope.player = {
       draftStatus:'roster',
       status:'regular',
@@ -42,7 +46,7 @@ Roster.controller('RosterMainController',[
         var batterSubtotal = totalAndSortBatters(result);
         $scope.batters = batterSubtotal.batters;
         $scope.batterTotal = batterSubtotal.subTotal;
-
+        totalErUp();
       });
 
     /*
@@ -75,6 +79,8 @@ Roster.controller('RosterMainController',[
        // return ({starters:originalArray,subTotal:startersSubTotal});
         $scope.starterTotal = totalAndSortStarters(startersArray).subTotal;
         $scope.closerTotal = totalAndSortClosers(closersArray).subTotal;
+
+        totalErUp();
 
 
       });
@@ -257,9 +263,7 @@ Roster.controller('RosterMainController',[
      * */
     var totalAndSortClosers = function(originalArray){
       var closersSubTotal = 0;
-      for (var i = 0;i < originalArray.length;i++){
-        originalArray[i].total = ((originalArray[i].saves * 7)  + (originalArray[i].wins * 6) + (originalArray[i].k / 2) + (originalArray[i].ip / 2))
-      }
+
       originalArray.sort(compareTotals);
       if (originalArray[0]){
         originalArray[0].counting = true;
@@ -274,6 +278,10 @@ Roster.controller('RosterMainController',[
     };
 
 
+    var totalErUp = function(){
+        $scope.grandTotal =( $scope.batterTotal + $scope.starterTotal + $scope.closerTotal );
+
+    }
 
 
   }

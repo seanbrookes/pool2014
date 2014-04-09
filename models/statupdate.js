@@ -181,15 +181,15 @@ StatUpdate.beforeRemote('create', function(ctx, user, next) {
                     hitterStatPackageObj.total = getHitterTotal(hitterStatPackageObj);
 
 
-//
-//                    DailyBatterStat.create(hitterStatPackageObj,
-//                      function(response){
-//                        console.log('yay added stat');
-//                      },
-//                      function(response){
-//                        console.log('sad no stat: ' + JSON.stringify(response));
-//                      }
-//                    );
+
+                    DailyBatterStat.create(hitterStatPackageObj,
+                      function(response){
+                        console.log('yay added stat');
+                      },
+                      function(response){
+                        console.log('sad no stat: ' + JSON.stringify(response));
+                      }
+                    );
 
 
 
@@ -251,14 +251,14 @@ StatUpdate.beforeRemote('create', function(ctx, user, next) {
                     }
 
 
-//                    DailyPitcherStat.create(pitcherStatPackageObj,
-//                      function(response){
-//                        console.log('yay added pitcher');
-//                      },
-//                      function(response){
-//                        console.log('sad no stat: ' + JSON.stringify(response));
-//                      }
-//                    );
+                    DailyPitcherStat.create(pitcherStatPackageObj,
+                      function(response){
+                        console.log('yay added pitcher');
+                      },
+                      function(response){
+                        console.log('sad no stat: ' + JSON.stringify(response));
+                      }
+                    );
                     break;
                   }
                 }
@@ -284,14 +284,14 @@ StatUpdate.beforeRemote('create', function(ctx, user, next) {
           status:'good',
           type:'stats'
         };
-//        StatUpdate.create(statUpdateObj,
-//          function(response){
-//            console.log('yay added stat update');
-//          },
-//          function(response){
-//            console.log('sad no stat update: ' + JSON.stringify(response));
-//          }
-//        );
+        StatUpdate.create(statUpdateObj,
+          function(response){
+            console.log('yay added stat update');
+          },
+          function(response){
+            console.log('sad no stat update: ' + JSON.stringify(response));
+          }
+        );
 
       });
 
@@ -303,6 +303,13 @@ StatUpdate.beforeRemote('create', function(ctx, user, next) {
     return n % 1 === 0;
   }
 
+  /*
+  *
+  *
+  * Hitter total
+  *
+  *
+  * */
   var getHitterTotal = function(hitter){
     var totalVal = 0;
     var baseValObj = {
@@ -314,23 +321,23 @@ StatUpdate.beforeRemote('create', function(ctx, user, next) {
     };
 
     if (hitter.r) {
-      baseValObj.r = hitter.r;
+      baseValObj.r = parseInt(hitter.r);
     }
     if (hitter.h) {
-      baseValObj.h = hitter.h;
+      baseValObj.h = parseInt(hitter.h);
     }
     if (hitter.rbi) {
-      baseValObj.rbi = hitter.rbi;
+      baseValObj.rbi = parseInt(hitter.rbi);
     }
     if (hitter.hr) {
-      baseValObj.hr = hitter.hr;
+      baseValObj.hr = parseInt(hitter.hr);
     }
     if (hitter.sb) {
-      baseValObj.sb = hitter.sb;
+      baseValObj.sb = parseInt(hitter.sb);
     }
 
     try {
-      totalVal = ((parseInt(baseValObj.r)) + (parseInt(baseValObj.h) / 2) + (parseInt(baseValObj.rbi)) + (parseInt(baseValObj.hr) * 2) + (parseInt(baseValObj.sb) / 2));
+      totalVal = (baseValObj.r) + (baseValObj.h / 2) + (baseValObj.rbi) + (baseValObj.hr * 2) + (baseValObj.sb / 2);
 
     }
     catch(e){
@@ -340,8 +347,18 @@ StatUpdate.beforeRemote('create', function(ctx, user, next) {
     if (!isInt(totalVal)){
       totalVal = parseFloat(totalVal).toFixed(2);
     }
+
+
+
     return totalVal
   };
+
+  /*
+  *
+  * starter total
+  *
+  *
+  * */
   var getStarterTotal = function(pitcher){
     var totalVal = 0;
 
@@ -350,6 +367,7 @@ StatUpdate.beforeRemote('create', function(ctx, user, next) {
       w:0,
       k:0
     };
+
 
     if (pitcher.l) {
       baseValObj.l = parseInt(pitcher.l);
@@ -372,19 +390,6 @@ StatUpdate.beforeRemote('create', function(ctx, user, next) {
       totalVal = parseFloat(totalVal).toFixed(2);
     }
 
-    console.log('|');
-    console.log('|');
-    console.log('|');
-    console.log('|');
-    console.log('|  Starter: ' + pitcher.name);
-    console.log('|');
-    console.log('|  w[' + pitcher.w + ']  l[' + pitcher.l + ']   k[' + pitcher.k + ']');
-    console.log('|');
-    console.log('| total[' + totalVal + ']');
-    console.log('|');
-    console.log('|');
-    console.log('|');
-    console.log('|');
 
 
     return totalVal;
@@ -398,6 +403,9 @@ StatUpdate.beforeRemote('create', function(ctx, user, next) {
       k:0,
       ip:0
     };
+//    console.log('total this pitcher:  ==============================');
+//    console.log(JSON.stringify(pitcher));
+
     if (pitcher.sv){
       baseValObj.sv = parseInt(pitcher.sv);
     }
@@ -419,20 +427,20 @@ StatUpdate.beforeRemote('create', function(ctx, user, next) {
       totalVal = parseFloat(totalVal).toFixed(2);
     }
 
-    console.log('|');
-    console.log('|');
-    console.log('|');
-    console.log('|');
-    console.log('|  Starter: ' + pitcher.name);
-    console.log('|');
-    console.log('|  w[' + pitcher.w + ']  l[' + pitcher.l + ']   k[' + pitcher.k + ' ip[' + pitcher.ip + ']  sv[' + pitcher.sv + ']');
-    console.log('|');
-    console.log('| total[' + totalVal + ']');
-    console.log('|');
-    console.log('|');
-    console.log('|');
-    console.log('|');
-
+//
+//    console.log('|');
+//    console.log('|');
+//    console.log('|');
+//    console.log('|');
+//    console.log('|  Starter: ' + pitcher.name);
+//    console.log('|');
+//    console.log('|  w[' + baseValObj.w + ']  l[' + baseValObj.l + ']   k[' + baseValObj.k + ']   ip[' + baseValObj.ip + ']   sv[' + baseValObj.sv + ']');
+//    console.log('|');
+//    console.log('| total[' + totalVal + ']');
+//    console.log('|');
+//    console.log('|');
+//    console.log('|');
+//    console.log('|');
 
     return totalVal;
 

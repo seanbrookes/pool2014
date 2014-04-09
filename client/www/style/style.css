@@ -177,3 +177,6 @@ footer {
     color: darkblue;
     text-align: left;
 }
+h1 span.grand-total{
+    font-weight: 300;
+}
