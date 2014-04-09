@@ -316,7 +316,7 @@
       }
     },
     "public": true,
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "plural": "dailypitcherstats"
   },
   "dailybatterstat": {
@@ -365,31 +365,6 @@
     "public": true,
     "dataSource": "mongodb",
     "plural": "dailybatterstats"
-  },
-  "rosterplayer": {
-    "properties": {
-      "id": {
-        "type": "string"
-      },
-      "name": {
-        "type": "string"
-      },
-      "roster": {
-        "type": "string"
-      },
-      "team": {
-        "type": "string"
-      },
-      "pos": {
-        "type": "string"
-      },
-      "posType": {
-        "type": "string"
-      }
-    },
-    "public": true,
-    "dataSource": "db",
-    "plural": "rosterplayers"
   },
   "rosterbatter": {
     "properties": {
@@ -485,5 +460,19 @@
     "public": true,
     "dataSource": "db",
     "plural": "rosterpitchers"
+  },
+  "statsupdate": {
+    "properties": {
+      "id": {
+        "type": "string",
+        "id": true
+      },
+      "timestamp": {
+        "type": "date"
+      }
+    },
+    "public": true,
+    "dataSource": "mongodb",
+    "plural": "statsupdates"
   }
 }

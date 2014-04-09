@@ -149,3 +149,31 @@ li {
 tr.is-associated{
     background-color:#85A88D;
 }
+#FormAdminRosterPlayer {
+    /*display:none;*/
+}
+.roster-buttons{
+    /*display:none;*/
+}
+footer {
+    height:100px;
+}
+.roster-table{
+    font-size:120%;
+    width:50rem;
+    border:1px solid #444444;
+}
+.roster-table td{
+    padding:.1rem;
+    border:1px solid #dddddd;
+    text-align: center;
+    vertical-align: middle;
+}
+.roster-table td.row-total {
+    font-weight: bold;
+    background-color: #eeeeee;
+}
+.roster-table td.player-name {
+    color: darkblue;
+    text-align: left;
+}

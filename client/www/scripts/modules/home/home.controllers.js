@@ -3,24 +3,12 @@
  */
 Home.controller('HomeController', [
   '$scope',
-  'Statupdate',
-  function ($scope,Statupdate) {
+  function ($scope) {
 
     console.log('home controller');
 
 
-    $scope.refreshStats = function(){
-      console.log('refresh stats');
 
-      Statupdate.create({},
-        function(response){
-          console.log('good stats update: ' + JSON.stringify(response));
-        },
-        function(response){
-          console.log('bad stats update: ' + JSON.stringify(response));
-        }
-      );
-    }
 
 
   }

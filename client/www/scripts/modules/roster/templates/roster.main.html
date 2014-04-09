@@ -1,100 +1,165 @@
 <p>{{ currentRosterName }}</p>
-  <button ng-click="postToHitterList(players)" ng-model="players">Post to hitter list</button>
-  <div>
-    <form id="FormAdminRosterPlayer" class="forms columnar">
-      <div>
-        <!-- roster -->
-        <label for="RosterSelect">Roster</label>
-        <select id="RosterSelect" ng-model="currentRosterName" class="roster-select">
-          <option value="bashers">bashers</option>
-          <option value="mashers">mashers</option>
-          <option value="rallycaps">rallycaps</option>
-          <option value="stallions">stallions</option>
-        </select>
-      </div>
-      <div>
-        <!-- player name -->
-        <label for="PlayerNameInput">Player</label>
-        <input type="text" id="PlayerNameInput" ng-model="player.name" class="input-player-name" value="">
-      </div>
-      <div>
-        <!-- pos -->
-        <label for="PosSelect">Pos</label>
-        <select id="PosSelect" class="select-pos pick-property-edit" ng-model="player.pos" data-id="<%= S.id %>" data-type="pos">
-          <option value="C">C</option>
-          <option value="1B">1B</option>
-          <option value="2B">2B</option>
-          <option value="3B">3B</option>
-          <option value="SS">SS</option>
-          <option value="LF">LF</option>
-          <option value="CF">CF</option>
-          <option value="RF">RF</option>
-          <option value="DH">DH</option>
-          <option value="SP">SP</option>
-          <option value="RP">RP</option>
-        </select>
-      </div>
-      <div>
-        <!-- team -->
-        <label for="TeamSelect">Team</label>
-        <select class="select-team pick-property-edit" id="TeamSelect" ng-model="player.team" data-id="<%= S.id %>" data-type="team">
-          <option value="BAL">BAL</option>
-          <option value="BOS">BOS</option>
-          <option value="CHA">CHA</option>
-          <option value="CLE">CLE</option>
-          <option value="DET">DET</option>
-          <option value="HOU">HOU</option>
-          <option value="KC">KC</option>
-          <option value="LAA">LAA</option>
-          <option value="MIN">MIN</option>
-          <option value="NYY">NYY</option>
-          <option value="OAK">OAK</option>
-          <option value="SEA">SEA</option>
-          <option value="TB">TB</option>
-          <option value="TEX">TEX</option>
-          <option value="TOR">TOR</option>
-        </select>
-      </div>
-      <div>
-        <label for="DraftStatusSelect">Roster Status</label>
-        <select id="DraftStatusSelect" ng-model="player.draftStatus" class="status-select">
-          <option value="bubble">bubble</option>
-          <option value="dropped">dropped</option>
-          <option value="prospect">prospect</option>
-          <option value="protected">protected</option>
-          <option value="roster">roster</option>
-        </select>
-      </div>
-      <div>
-        <label for="PlayerStatusSelect">Player Status</label>
-        <select id="PlayerStatusSelect" ng-model="player.status" class="status-select">
-          <option value="dl">dl</option>
-          <option value="nl">nl</option>
-          <option value="prospect">prospect</option>
-          <option value="regular">regular</option>
-        </select>
-      </div>
-      <div>
-        <label for="PosTypeSelect">Position Type</label>
-        <select id="PosTypeSelect" ng-model="player.posType" class="status-select">
-          <option value="hitter">hitter</option>
-          <option value="pitcher">pitcher</option>
-        </select>
-      </div>
-      <div class="push">
-        <button class="btn-submit btn-submit-rosterplayer" ng-click="savePlayer(player)" ng-model="player">Save</button>
-      </div>
-    </form>
-  </div>
 
-  <table class="roster-table">
-    <tr ng-repeat="player in players | orderBy:['posType','pos']">
-      <td>{{ player.pos }}</td>
-      <td>{{ player.name }}</td>
-      <td>{{ player.team }}</td>
-      <td>
-        <button ng-model="player" ng-click="editPlayer(player)" >edit</button>
-        <button ng-model="player" ng-click="deletePlayer(player)" >delete</button>
-      </td>
+
+  <table class="roster-table" id="HitterTable">
+    <caption>Batters</caption>
+    <thead>
+      <tr>
+        <th>
+          pos
+        </th>
+        <th>
+          name
+        </th>
+        <th>
+          team
+        </th>
+        <th>
+          runs
+        </th>
+        <th>
+          hits
+        </th>
+        <th>
+          hr
+        </th>
+        <th>
+          rbi
+        </th>
+        <th>
+          sb
+        </th>
+        <th>
+          total
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="batter in batters | orderBy:['pos','-total']" class="{{ batter.pos }}">
+      <td>{{ batter.pos }}</td>
+      <td class="player-name">{{ batter.name }}</td>
+      <td>{{ batter.team }}</td>
+      <td>{{ batter.r }}</td>
+      <td>{{ batter.h }}</td>
+      <td>{{ batter.hr }}</td>
+      <td>{{ batter.rbi }}</td>
+      <td>{{ batter.sb }}</td>
+      <td class="row-total">{{ batter.total }}</td>
     </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="8"></td>
+        <td><div class="roster-pos-total" id="RosterBatterTotal">{{ batterTotal }}</div></td>
+      </tr>
+    </tfoot>
   </table>
+  <table class="roster-table" id="StarterTable">
+    <caption>Starters</caption>
+    <thead>
+      <tr>
+        <th>
+          pos
+        </th>
+        <th>
+          name
+        </th>
+        <th>
+          team
+        </th>
+        <th>
+          w
+        </th>
+        <th>
+          l
+        </th>
+        <th>
+          ip
+        </th>
+        <th>
+          k
+        </th>
+        <th>
+          total
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="starter in starters | orderBy:['-total']">
+      <td>{{ starter.pos }}</td>
+      <td class="player-name">{{ starter.name }}</td>
+      <td>{{ starter.team }}</td>
+      <td>{{ starter.w }}</td>
+      <td>{{ starter.l }}</td>
+      <td>{{ starter.ip }}</td>
+      <td>{{ starter.k }}</td>
+      <td class="row-total">{{ starter.total }}</td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="7"></td>
+      <td><div class="roster-pos-total" id="RosterStarterTotal">{{ starterTotal }}</div></td>
+    </tr>
+    </tfoot>
+  </table>
+<table class="roster-table" id="CloserTable">
+  <caption>Closers</caption>
+  <thead>
+  <tr>
+    <th>
+      pos
+    </th>
+    <th>
+      name
+    </th>
+    <th>
+      team
+    </th>
+    <th>
+      w
+    </th>
+    <th>
+      l
+    </th>
+    <th>
+      ip
+    </th>
+    <th>
+      k
+    </th>
+    <th>
+      saves
+    </th>
+    <th>
+      total
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="closer in closers | orderBy:['-total']">
+    <td>{{ closer.pos }}</td>
+    <td class="player-name">{{ closer.name }}</td>
+    <td>{{ closer.team }}</td>
+    <td>{{ closer.w }}</td>
+    <td>{{ closer.l }}</td>
+    <td>{{ closer.ip }}</td>
+    <td>{{ closer.k }}</td>
+    <td>{{ closer.sv }}</td>
+    <td class="row-total">{{ closer.total }}</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="8"></td>
+    <td><div class="roster-pos-total" id="RosterCloserTotal">{{ closerTotal }}</div></td>
+  </tr>
+  </tfoot>
+</table>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+
