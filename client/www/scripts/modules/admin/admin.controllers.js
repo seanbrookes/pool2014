@@ -1,6 +1,90 @@
 /**
  * Created by seanbrookes on 2014-02-08.
  */
+Admin.controller('RosterAdminController',[
+  '$scope',
+  'RosterService',
+  'Roster',
+  function($scope, RosterService, Roster) {
+    "use strict";
+    $scope.currRoster = {};
+    $scope.loadAdminRoster = function(slug){
+
+      $scope.currRoster = slug;
+      // load roster data
+      var filter = {
+        'filter[where][slug]':slug
+      };
+      $scope.currentRoster = Roster.query(filter);
+      $scope.currentRoster.$promise.
+        then(function (result) {
+          $scope.currentRoster = result[0];
+          $scope.players = $scope.currentRoster.players;
+
+        });
+
+    };
+
+    $scope.editThisPlayer = function(player){
+      $scope.editPlayer = player;
+    };
+    $scope.saveEditPlayer = function(player){
+      var editConfirmed = false;
+
+      if (player.mlbid){
+        angular.forEach($scope.currentRoster.players, function(value, key){
+          if (value.mlbid === player.mlbid){
+            console.log('matched player');
+            $scope.currentRoster.players[key] = player;
+            editConfirmed = true;
+          }
+        });
+      }
+      else {
+        $scope.currentRoster.players.push(player);
+        editConfirmed = true;
+      }
+
+
+      if (editConfirmed){
+        var rosterObj = $scope.currentRoster;
+        delete rosterObj._id;
+        Roster.upsert(rosterObj,
+          function(response){
+            console.log('good update roster');
+            var filter = {
+              'filter[where][slug]':$scope.currentRosterName
+            };
+            $scope.currentRoster = Roster.query(filter);
+            $scope.currentRoster.$promise.then(function (result) {
+              $scope.currentRoster = result[0];
+
+              $scope.players = $scope.currentRoster.players;
+              $scope.player = {
+                draftStatus:'roster',
+                status:'regular',
+                posType:'hitter'
+              };
+            });
+          },
+          function(response){
+            console.log('bad update roster');
+          }
+        );
+      }
+
+    };
+
+
+
+
+
+
+
+
+
+  }
+]);
 Admin.controller('MainAdminController',[
   '$scope',
   'Rawbatterid',

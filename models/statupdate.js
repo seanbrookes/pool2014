@@ -168,7 +168,7 @@ StatUpdate.beforeRemote('create', function(ctx, user, next) {
                       name: currentPlayer.name,
                       roster: targetRoster.slug,
                       rosterStatus: currentPlayer.status,
-                      team: currRawHitter.team,
+                      team: currentPlayer.team,
                       pos: currRawHitter.pos,
                       r: currRawHitter.r,
                       h: currRawHitter.h,

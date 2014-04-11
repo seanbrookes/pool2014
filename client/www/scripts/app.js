@@ -56,6 +56,11 @@ app.config([
         controller:'MainAdminController',
         templateUrl:'./scripts/modules/admin/templates/admin.home.html'
       }).
+      state('adminroster', {
+        url:'/adminroster',
+        controller:'RosterAdminController',
+        templateUrl:'./scripts/modules/admin/templates/admin.roster.html'
+      }).
       state('blog', {
         url:'/blog',
         controller:'BlogMainController',
