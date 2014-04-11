@@ -1,0 +1,111 @@
+<div class="container roster-container">
+  <div class="row">
+    <div class="col-xs-2">
+      <ul>
+        <li>
+          <a href="#/rank/all">All</a>
+        </li>
+        <li>
+          <a href="#/rank/C">C</a>
+        </li>
+        <li>
+          <a href="#/rank/1B">1B</a>
+        </li>
+        <li>
+          <a href="#/rank/2B">2B</a>
+        </li>
+        <li>
+          <a href="#/rank/3B">3B</a>
+        </li>
+        <li>
+          <a href="#/rank/SS">SS</a>
+        </li>
+        <li>
+          <a href="#/rank/LF">LF</a>
+        </li>
+        <li>
+          <a href="#/rank/CF">CF</a>
+        </li>
+        <li>
+          <a href="#/rank/RF">RF</a>
+        </li>
+        <li>
+          <a href="#/rank/DH">DH</a>
+        </li>
+      </ul>
+
+    </div>
+    <div class="col-xs-10">
+
+
+      <h2>{{ currentFilter }} ranks</h2>
+      <table class="roster-table" id="HitterTable">
+        <caption>Batters</caption>
+        <thead>
+        <tr>
+          <th>
+            roster
+          </th>
+          <th>
+            pos
+          </th>
+          <th>
+            name
+          </th>
+          <th>
+            team
+          </th>
+          <th>
+            runs
+          </th>
+          <th>
+            hits
+          </th>
+          <th>
+            hr
+          </th>
+          <th>
+            rbi
+          </th>
+          <th>
+            sb
+          </th>
+          <th>
+            total
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="batter in batters | orderBy:['pos','-total']" class="{{ batter.pos }}">
+          <td>{{ batter.roster }}</td>
+          <td>{{ batter.pos }}</td>
+          <td class="player-name">{{ batter.name }}</td>
+          <td>{{ batter.team }}</td>
+          <td>{{ batter.r }}</td>
+          <td>{{ batter.h }}</td>
+          <td>{{ batter.hr }}</td>
+          <td>{{ batter.rbi }}</td>
+          <td>{{ batter.sb }}</td>
+          <td class="row-total">{{ batter.total }}</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+          <td colspan="8"></td>
+          <td><div class="roster-pos-total" id="RosterBatterTotal">{{ batterTotal }}</div></td>
+        </tr>
+        </tfoot>
+      </table>
+
+
+    </div>
+  </div>
+
+
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+
+</div>

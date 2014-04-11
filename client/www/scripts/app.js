@@ -12,8 +12,10 @@ var app = angular.module('app', [
   'Auth',
   'Draft',
   'Roster',
+  'Common',
   'Reference',
   'Blog',
+  'Stats',
   'ui.bootstrap',
   'ui.utils',
   'angular-medium-editor',
@@ -70,6 +72,11 @@ app.config([
         url:'/roster/:name',
         controller:'RosterMainController',
         templateUrl:'./scripts/modules/roster/templates/roster.main.html'
+      }).
+      state('rank', {
+        url:'/rank/:pos',
+        controller:'RankPosController',
+        templateUrl:'./scripts/modules/stats/templates/rank.pos.html'
       }).
       state('auth',{
         url:'/auth/:name',
