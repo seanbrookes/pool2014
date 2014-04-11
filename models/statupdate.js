@@ -147,17 +147,21 @@ StatUpdate.beforeRemote('create', function(ctx, user, next) {
             * */
             // iterate over batting stats
             if (currentPlayer.posType === 'hitter'){
-              for (hI = 0;hI < hittingStatCount;hI++){
-                //console.log('THIS PLAYER IS A HITTER ' + latestHittingStats[hI].player_id );
 
-                var currRawHitter = latestHittingStats[hI];
-                // only worry about players that we have mlbid assignments for
-                if (currentPlayer.mlbid){
+
+
+
+              if (currentPlayer.mlbid){
+                for (hI = 0;hI < hittingStatCount;hI++){
+                  //console.log('THIS PLAYER IS A HITTER ' + latestHittingStats[hI].player_id );
+
+                  var currRawHitter = latestHittingStats[hI];
+
                   /*
-                  *
-                  * MATCHING ROSTER HITTER
-                  *
-                  * */
+                   *
+                   * MATCHING ROSTER HITTER
+                   *
+                   * */
                   if (currRawHitter.player_id === currentPlayer.mlbid){
                     console.log('[' + currentPlayer.name + ']');
 
@@ -168,8 +172,8 @@ StatUpdate.beforeRemote('create', function(ctx, user, next) {
                       name: currentPlayer.name,
                       roster: targetRoster.slug,
                       rosterStatus: currentPlayer.status,
-                      team: currentPlayer.team,
-                      pos: currRawHitter.pos,
+                      team: currRawHitter.team,
+                      pos: currentPlayer.pos,
                       r: currRawHitter.r,
                       h: currRawHitter.h,
                       rbi: currRawHitter.rbi,
@@ -195,8 +199,43 @@ StatUpdate.beforeRemote('create', function(ctx, user, next) {
 
                     break;
                   }
+
                 }
               }
+              else {
+                var LhitterStatPackageObj = {
+                  date: statsDate,
+                  lastUpdate: Date.now(),
+                  mlbid: currentPlayer.mlbid,
+                  name: currentPlayer.name,
+                  roster: targetRoster.slug,
+                  rosterStatus: currentPlayer.status,
+                  team: currentPlayer.team,
+                  pos: currentPlayer.pos,
+                  r: 0,
+                  h: 0,
+                  rbi: 0,
+                  hr: 0,
+                  sb: 0
+                };
+
+
+                LhitterStatPackageObj.total = 0;
+
+
+
+                DailyBatterStat.create(LhitterStatPackageObj,
+                  function(response){
+                    console.log('yay added stat');
+                  },
+                  function(response){
+                    console.log('sad no stat: ' + JSON.stringify(response));
+                  }
+                );
+              }
+
+
+
             }
             /*
             *
@@ -204,13 +243,12 @@ StatUpdate.beforeRemote('create', function(ctx, user, next) {
             *
             * */
             else {
-              for (pI = 0;pI < pitchingStatCount;pI++){
-                var currRawPitcher = latestPitchingStats[pI];
-               // console.log('currRawPitcher: ' + JSON.stringify(currRawPitcher));
 
+              if (currentPlayer.mlbid){
+                for (pI = 0;pI < pitchingStatCount;pI++){
+                  var currRawPitcher = latestPitchingStats[pI];
+                  // console.log('currRawPitcher: ' + JSON.stringify(currRawPitcher));
 
-                // only worry about players that we have mlbid assignments for
-                if (currentPlayer.mlbid){
                   /*
                    *
                    * MATCHING ROSTER PITCHER
@@ -235,8 +273,6 @@ StatUpdate.beforeRemote('create', function(ctx, user, next) {
                       sv: currRawPitcher.sv,
                       ip: currRawPitcher.ip
                     };
-
-
 
                     var pitcherTotal = 0;
                     // figure out if closer or starter
@@ -263,6 +299,48 @@ StatUpdate.beforeRemote('create', function(ctx, user, next) {
                   }
                 }
               }
+              else {
+
+                // non mlbid player
+
+                var LpitcherStatPackageObj = {
+                  date: statsDate,
+                  lastUpdate: Date.now(),
+                  name: currentPlayer.name,
+                  roster: targetRoster.slug,
+                  rosterStatus: currentPlayer.status,
+                  team: currentPlayer.team,
+                  pos: currentPlayer.pos,
+                  w: 0,
+                  l: 0,
+                  k: 0,
+                  sv: 0,
+                  ip: 0,
+                  total: 0
+                };
+
+                DailyPitcherStat.create(LpitcherStatPackageObj,
+                  function(response){
+                    console.log('yay added pitcher');
+                  },
+                  function(response){
+                    console.log('sad no stat: ' + JSON.stringify(response));
+                  }
+                );
+
+
+
+
+
+
+
+
+
+
+              }
+
+
+
             }
 
 
