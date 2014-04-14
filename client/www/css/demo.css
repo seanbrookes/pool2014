@@ -2,27 +2,7 @@
     outline: none;
 }
 
-@font-face {
-    font-family: 'ProximaNovaBlack';
-    src: url('http://dfimg.com/fonts/proximanova-black-webfont.eot');
-    src: url('http://dfimg.com/fonts/proximanova-black-webfont.eot?#iefix') format('embedded-opentype'),
-         url('http://dfimg.com/fonts/proximanova-black-webfont.woff') format('woff'),
-         url('http://dfimg.com/fonts/proximanova-black-webfont.ttf') format('truetype'),
-         url('http://dfimg.com/fonts/proximanova-black-webfont.svg#ProximaNovaBlack') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
 
-@font-face {
-    font-family: 'ProximaNovaRegular';
-    src: url('http://dfimg.com/fonts/proximanova-regular-webfont.eot');
-    src: url('http://dfimg.com/fonts/proximanova-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('http://dfimg.com/fonts/proximanova-regular-webfont.woff') format('woff'),
-         url('http://dfimg.com/fonts/proximanova-regular-webfont.ttf') format('truetype'),
-         url('http://dfimg.com/fonts/proximanova-regular-webfont.svg#ProximaNovaRegular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
 
 body {
     font-family: ProximaNovaRegular, Helvetica, Arial, sans-serif;
