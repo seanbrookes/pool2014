@@ -1,6 +1,92 @@
 /**
  * Created by seanbrookes on 2014-02-08.
  */
+Admin.controller('AdminRawStatsController',[
+  '$scope',
+  'Dailybatterstat',
+  'Dailypitcherstat',
+  function($scope, Dailybatterstat, Dailypitcherstat){
+    // load roster data
+
+    $scope.mode = '';
+
+    $scope.loadRawBatters = function(){
+      $scope.hideBatterButton = true;
+      $scope.mode = 'batter';
+      $scope.currentRoster = Dailybatterstat.raw();
+      $scope.currentRoster.$promise.
+        then(function (result) {
+          $scope.hideBatterButton = false;
+          // $scope.currentRoster = result[0];
+          $scope.stats = result.stats;
+          $scope.recordCount = result.stats.length;
+
+        }
+      ),
+      function(response){
+        console.log('rejected get batters: ' + JSON.stringify(response));
+        $scope.hideBatterButton = false;
+      };
+    };
+    $scope.loadRawPitchers = function(){
+      $scope.hidePitcherButton = true;
+      $scope.mode = 'pitcher';
+      $scope.currentRoster = Dailypitcherstat.raw();
+      $scope.currentRoster.$promise.
+        then(function (result) {
+          $scope.hidePitcherButton = false;
+         // $scope.currentRoster = result[0];
+          $scope.stats = result.stats;
+          $scope.recordCount = result.stats.length;
+
+        }
+      );
+    };
+
+    $scope.remove = function(array, index){
+      $scope.stats.splice(index, 1);
+    }
+
+
+    $scope.deleteRawStat = function(stat, event){
+      if (confirm('delete?')){
+
+        event.currentTarget.disabled = true;
+
+        console.log('delete this stat' + stat );
+        if ($scope.mode === 'batter'){
+          Dailybatterstat.deleteById({id:stat.id},
+            function(response){
+             // $scope.remove($scope.stats, index);
+              console.log('success delete object: ' + JSON.stringify(response));
+            },
+            function(response){
+              console.log('bad delete object: ' + JSON.stringify(response));
+            }
+          );
+        }
+        else if ($scope.mode === 'pitcher'){
+          Dailypitcherstat.deleteById({id:stat.id},
+            function(response){
+           //   $scope.remove($scope.stats, index);
+              console.log('success delete object: ' + JSON.stringify(response));
+            },
+            function(response){
+              console.log('bad delete object: ' + JSON.stringify(response));
+            }
+          );
+
+        }
+        else {
+          console.log('no mode selected for delete');
+        }
+      }
+
+    }
+  }
+
+
+]);
 Admin.controller('RosterAdminController',[
   '$scope',
   'RosterService',
@@ -21,7 +107,8 @@ Admin.controller('RosterAdminController',[
           $scope.currentRoster = result[0];
           $scope.players = $scope.currentRoster.players;
 
-        });
+        }
+      );
 
     };
 
@@ -168,9 +255,7 @@ Admin.controller('MainAdminController',[
           console.log('bad update roster');
         }
       );
-      // save roster
-      // clean things up
-     // $scope.linkPLayer = player;
+
 
 
 

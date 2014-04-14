@@ -38,3 +38,23 @@ DailyPitcherStat.afterRemote('find', function(ctx, user, next) {
     next();
   }
 );
+
+DailyPitcherStat.raw = function(callback){
+
+  DailyPitcherStat.find({}, function(err, dox){
+    if (err){
+      callback(err);
+    }
+    console.log('check this');
+    callback(null, dox);
+
+  });
+};
+
+loopback.remoteMethod(
+  DailyPitcherStat.raw,
+  {
+    returns: {arg: 'stats', type: 'array'},
+    http: {path: '/raw', verb: 'get'}
+  }
+);

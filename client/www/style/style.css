@@ -8,7 +8,9 @@ ul{
 }
 li{
     list-style: none;
+    list-style-type: none;
 }
+
 
 .nav, .pagination, .carousel, .panel-title a {
     cursor: pointer;
@@ -50,11 +52,7 @@ pre {
 code {
     color:#000;
 }
-li {
-    list-style-type: disc;
-    list-style-position: inside;
-    padding: 0 12px;
-}
+
 .lnk-command{
     border:0;
     background-color:transparent;
@@ -182,4 +180,36 @@ footer {
 }
 h1 span.grand-total{
     font-weight: 300;
+}
+.admin-total-col{
+    text-align: left;
+    font-weight:bold;
+}
+.admin-date-col{
+    text-align:left;
+}
+#RawBatters td{
+    border-bottom:1px solid #444444;
+}
+button:disabled{
+    background-color:green;
+}
+.general-nav-container{
+    padding:40px;
+}
+.general-nav-container ul{
+     max-width:240px;
+     margin:0 auto 0 auto;
+ }
+.general-nav-container ul li{
+    padding:9px;
+    background:#eeeeee;
+    border-radius:4px;
+}
+.general-nav-container ul li a{
+    color:seagreen;
+}
+.general-total-table td{
+    padding:.5rem;
+    border:1px solid #dddddd;
 }

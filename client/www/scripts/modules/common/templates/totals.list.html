@@ -1,0 +1,11 @@
+<table class="nav-totals">
+  <tr ng-repeat="roster in rosters | orderBy:['-grandTotal'] | unique:'roster'">
+    <td>
+      <a href="#roster/{{ roster.roster }}">{{ roster.roster }}</a>
+    </td>
+    <td>
+      <span>{{ roster.grandTotal }}</span>
+    </td>
+
+  </tr>
+</table>

@@ -14,6 +14,11 @@ DailyBatterStat.beforeRemote('find', function(ctx, user, next) {
     next();
   }
 );
+DailyBatterStat.beforeRemote('deleteById', function(ctx, user, next) {
+console.log('TEST BEFORE REMOTE DELETE');
+    next();
+  }
+);
 DailyBatterStat.afterRemote('find', function(ctx, user, next) {
 
     var filteredOut = new Array();
@@ -34,5 +39,25 @@ DailyBatterStat.afterRemote('find', function(ctx, user, next) {
 
 
     next();
+  }
+);
+
+DailyBatterStat.raw = function(callback){
+
+  DailyBatterStat.find({}, function(err, dox){
+    if (err){
+      callback(err);
+    }
+    console.log('check this');
+    callback(null, dox);
+
+  });
+};
+
+loopback.remoteMethod(
+  DailyBatterStat.raw,
+  {
+    returns: {arg: 'stats', type: 'array'},
+    http: {path: '/raw', verb: 'get'}
   }
 );

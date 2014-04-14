@@ -15,6 +15,13 @@ rawpitcherstats.stats = function(fn){
 
   request({uri: pitchersUrl}, function(err, response, body){
 
+    console.log('|');
+    console.log('|');
+    console.log('|        wtf');
+    console.log('|');
+    console.log('|');
+    console.log('|');
+
     if(err){
       console.log('Request error: ' + err);
       //return res.send(500,'there was an error: ' +response.statusCode  + ' : ' + err);

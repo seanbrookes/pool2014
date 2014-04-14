@@ -7,8 +7,9 @@ Roster.controller('RosterMainController',[
   'Roster',
   'Dailybatterstat',
   'Dailypitcherstat',
+  'Totals',
   '$stateParams',
-  function($scope, RosterService, Roster, Dailybatterstat, Dailypitcherstat, $stateParams){
+  function($scope, RosterService, Roster, Dailybatterstat, Dailypitcherstat, Totals, $stateParams){
     console.log('Roster Main Controller');
     $scope.currentRosterName = $stateParams.name;
     var authUser = localStorage.getItem('homeRoster');
@@ -46,44 +47,47 @@ Roster.controller('RosterMainController',[
         var batterSubtotal = totalAndSortBatters(result);
         $scope.batters = batterSubtotal.batters;
         $scope.batterTotal = batterSubtotal.subTotal;
-        totalErUp();
+
+      }).
+      then(function(response){
+        /*
+         *
+         *
+         * Starters
+         *
+         * */
+        $scope.currentPitchers = Dailypitcherstat.query(filter);
+        $scope.currentPitchers.$promise.
+          then(function (result) {
+            var currentPitchers = result;
+            var startersArray = [];
+            var closersArray = [];
+
+            angular.forEach(currentPitchers, function(value, key){
+                if (value.pos === 'SP'){
+                  startersArray.push(value);
+                }
+                else if (value.pos === 'RP') {
+                  closersArray.push(value);
+                }
+                else{
+                  console.log(' pitcher with no pos: ' + JSON.stringify(value));
+                }
+              }
+            );
+            $scope.starters = totalAndSortStarters(startersArray).starters;
+            $scope.closers = totalAndSortClosers(closersArray).closers;
+            // return ({starters:originalArray,subTotal:startersSubTotal});
+            $scope.starterTotal = totalAndSortStarters(startersArray).subTotal;
+            $scope.closerTotal = totalAndSortClosers(closersArray).subTotal;
+
+            totalErUp();
+
+
+          });
       });
 
-    /*
-    *
-    *
-    * Starters
-    *
-    * */
-    $scope.currentPitchers = Dailypitcherstat.query(filter);
-    $scope.currentPitchers.$promise.
-      then(function (result) {
-        var currentPitchers = result;
-        var startersArray = [];
-        var closersArray = [];
 
-        angular.forEach(currentPitchers, function(value, key){
-            if (value.pos === 'SP'){
-              startersArray.push(value);
-            }
-            else if (value.pos === 'RP') {
-              closersArray.push(value);
-            }
-            else{
-              console.log(' pitcher with no pos: ' + JSON.stringify(value));
-            }
-          }
-        );
-        $scope.starters = totalAndSortStarters(startersArray).starters;
-        $scope.closers = totalAndSortClosers(closersArray).closers;
-       // return ({starters:originalArray,subTotal:startersSubTotal});
-        $scope.starterTotal = totalAndSortStarters(startersArray).subTotal;
-        $scope.closerTotal = totalAndSortClosers(closersArray).subTotal;
-
-        totalErUp();
-
-
-      });
     function compareTotals(a,b) {
 
       if (a.total > b.total){
@@ -279,7 +283,22 @@ Roster.controller('RosterMainController',[
 
 
     var totalErUp = function(){
-        $scope.grandTotal =( $scope.batterTotal + $scope.starterTotal + $scope.closerTotal );
+      var x = moment().format('YYYY-MM-DD');
+      $scope.grandTotal =( $scope.batterTotal + $scope.starterTotal + $scope.closerTotal );
+      var newTotalsRecord = {
+        date:moment().format('YYYY-MM-DD'),
+        roster:$scope.currentRosterName,
+        grandTotal:$scope.grandTotal,
+        batterTotal:$scope.batterTotal,
+        starterTotal:$scope.starterTotal,
+        closerTotal:$scope.closerTotal
+      };
+
+      Totals.create(newTotalsRecord);
+      // record the totals
+      // date stamp
+      // roster
+      //
 
     }
 
