@@ -11,6 +11,9 @@ Stats.controller('RankPosController',[
 
 
     $scope.currentFilter = $stateParams.pos;
+    $scope.showBatters = true;
+    $scope.showStarters = false;
+    $scope.showClosers = false;
 
 
     var filter = {
@@ -26,12 +29,43 @@ Stats.controller('RankPosController',[
     }
 
 
-    $scope.positionRanking = Dailybatterstat.query(filter);
-    $scope.positionRanking.$promise.
-      then(function (result) {
-        $scope.batters = result;
-      }
-    );
+    switch($scope.currentFilter){
+      case 'RP':
+        $scope.positionRanking = Dailypitcherstat.query(filter);
+        $scope.positionRanking.$promise.
+          then(function (result) {
+            $scope.closers = result;
+            $scope.showBatters = false;
+            $scope.showStarters = false;
+            $scope.showClosers = true;
+          }
+        );
+        break;
+      case 'SP':
+        $scope.positionRanking = Dailypitcherstat.query(filter);
+        $scope.positionRanking.$promise.
+          then(function (result) {
+            $scope.starters = result;
+            $scope.showBatters = false;
+            $scope.showStarters = true;
+            $scope.showClosers = false;
+          }
+        );
+        break;
+      default:
+        $scope.positionRanking = Dailybatterstat.query(filter);
+        $scope.positionRanking.$promise.
+          then(function (result) {
+            $scope.batters = result;
+            $scope.showBatters = true;
+            $scope.showStarters = false;
+            $scope.showClosers = false;
+          }
+        );
+        break;
+    }
+
+
 
   }
 ]);

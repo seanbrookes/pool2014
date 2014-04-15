@@ -137,6 +137,9 @@ code {
 #FormAdminRosterPlayer{
     display:block;
 }
+.roster-table{
+    width:56rem;
+}
 .roster-table button{
     /*display:none;*/
 }
@@ -161,7 +164,15 @@ footer {
 }
 .roster-table{
     font-size:120%;
-    border:1px solid #444444;
+
+}
+.roster-table caption{
+    text-align:left;
+    letter-spacing: 1rem;
+    font-size:118%;
+    text-decoration: underline;
+    color:#999999;
+
 }
 .roster-table td{
     padding:.1rem;
@@ -211,4 +222,35 @@ button:disabled{
 .general-total-table td{
     padding:.5rem;
     border:1px solid #dddddd;
+}
+.roster-total-summary-list{
+    width:56rem;
+    padding:0;
+}
+.roster-total-summary-list li{
+    display:inline;
+}
+.summary-total-container{
+    margin-right:1rem;
+    margin-left:.4rem;
+    font-size:110%;
+}
+.summary-total-container span{
+    font-weight:bold;
+}
+.side-nav-box{
+    border:1px solid #cccccc;
+    padding-left:1rem;
+    margin-bottom:1rem;
+    border-radius:.5rem;
+}
+.roster-total-summary-list-container{
+    border:1px solid #cccccc;
+    border-radius:.5rem;
+    width:56rem;
+}
+.total-delta{
+    font-size:80%;
+    font-weight:100;
+    color:#E85174;
 }
