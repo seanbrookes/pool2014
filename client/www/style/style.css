@@ -183,6 +183,8 @@ footer {
 .roster-table td.row-total {
     font-weight: bold;
     background-color: #eeeeee;
+    text-align: left;
+    padding-left: 1rem;
 }
 .roster-table td.player-name {
     color: darkblue;
