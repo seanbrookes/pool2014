@@ -50,7 +50,10 @@
         </thead>
         <tbody>
         <tr ng-repeat="batter in batters | orderBy:['pos','-total']" class="{{ batter.pos }}">
-          <td>{{ batter.pos }}</td>
+          <td>
+
+            {{ batter.pos }}
+          </td>
           <td class="player-name">{{ batter.name }}</td>
           <td>{{ batter.team }}</td>
           <td>{{ batter.r }}</td>
