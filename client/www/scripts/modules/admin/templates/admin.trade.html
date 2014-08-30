@@ -1,0 +1,39 @@
+<div>
+
+  <table>
+    <tr>
+      <td class="trade-summary-controls">
+        trade {{targetPlayer}} <br />from {{sourceRosterName}} <br />to {{targetRosterName}}
+        <select id="RosterSelect" data-ng-model="targetRoster" ng-change="change(targetRoster)" class="roster-select">
+          <option value="bashers">bashers</option>
+          <option value="mashers">mashers</option>
+          <option value="rallycaps">rallycaps</option>
+          <option value="stallions">stallions</option>
+        </select>
+        <br /> <button ng-click="saveTradeData()" >Save</button>
+        <button ng-click="resetTradeObj()">Clear</button>
+      </td>
+      <td>
+        <div id="tradeplayerlist">
+
+          <h2>Players</h2>
+          <table>
+            <tr  ng-repeat="player in players" ng-controller="TradePlayerController">
+              <td>{{player.pIndex}}</td>
+              <td>
+                <button ng-model="player" ng-click="playerAction(player)">{{player.roster}}</button>
+              </td>
+              <td>
+                {{player.mlbid}}
+              </td>
+              <td>{{player.name}}</td>
+            </tr>
+          </table>
+        </div>
+      </td>
+
+    </tr>
+
+  </table>
+
+</div>

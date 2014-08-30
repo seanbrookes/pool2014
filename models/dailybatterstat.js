@@ -24,14 +24,38 @@ DailyBatterStat.afterRemote('find', function(ctx, user, next) {
     var filteredOut = new Array();
     var uniqueMLBIDArray = [];
 
+    // get the month and day
+    var currentDate = new Date();
+
     var internalResult = ctx.result;
 
     for (var i = 0;i < internalResult.length;i++){
       var tPlayer = internalResult[i];
-      if (uniqueMLBIDArray.indexOf(tPlayer.mlbid) === -1){
-        uniqueMLBIDArray.push(tPlayer.mlbid);
-        filteredOut.push(tPlayer);
+
+      var playerMonth = new Date(tPlayer.date).getMonth();
+      var playerDate = new Date(tPlayer.date).getDate();
+      var currMonth = new Date().getMonth();
+      var currDate = new Date().getDate();
+
+//      console.log('player date: ' + playerMonth + ':' + playerDate);
+//      console.log('currentDate: ' +  currMonth + ':' + currDate);
+      if (parseInt(playerMonth) >= parseInt(currMonth)) {
+        if (parseInt(playerDate) >= parseInt(currDate)) {
+          if (uniqueMLBIDArray.indexOf(tPlayer.mlbid) === -1){
+            console.log(tPlayer.date + ' : ' + tPlayer.name + ' : ' + tPlayer.mlbid);
+            uniqueMLBIDArray.push(tPlayer.mlbid);
+            filteredOut.push(tPlayer);
+          }
+        }
+        else {
+          //console.log('| A dates do not match p[' + tPlayer.date  + '] c[' + currentDate + ']');
+        }
       }
+      else {
+        //console.log('| B dates do not match p[' + tPlayer.date  + '] c[' + currentDate + ']');
+      }
+
+
     }
     ctx.result = filteredOut;
 

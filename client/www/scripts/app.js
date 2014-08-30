@@ -9,6 +9,7 @@ var app = angular.module('app', [
   'Tag',
   'Event',
   'Admin',
+  'Chart',
   'Auth',
   'Draft',
   'Roster',
@@ -68,10 +69,20 @@ app.config([
         controller:'RosterAdminController',
         templateUrl:'./scripts/modules/admin/templates/admin.roster.html'
       }).
+      state('admintrade', {
+        url: '/admintrade',
+        controller: 'RosterTradeController',
+        templateUrl: './scripts/modules/admin/templates/admin.trade.html'
+      }).
       state('blog', {
         url:'/blog',
         controller:'BlogMainController',
         templateUrl:'./scripts/modules/blog/templates/blog.home.html'
+      }).
+      state('chart', {
+        url:'/chart',
+        controller:'ChartMainController',
+        templateUrl:'./scripts/modules/chart/templates/chart.main.html'
       }).
       state('roster', {
         url:'/roster/:name',

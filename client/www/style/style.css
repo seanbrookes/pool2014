@@ -256,3 +256,19 @@ button:disabled{
     font-weight:100;
     color:#E85174;
 }
+
+/*
+
+hack
+
+*/
+td {
+    vertical-align: top;
+}
+.trade-summary-controls {
+    width:450px;
+}
+#tradeplayerlist {
+    height:650px;
+    overflow-y: scroll;
+}

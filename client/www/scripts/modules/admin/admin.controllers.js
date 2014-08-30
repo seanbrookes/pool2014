@@ -87,6 +87,138 @@ Admin.controller('AdminRawStatsController',[
 
 
 ]);
+Admin.controller('TradePlayerController', [
+  '$scope',
+  function($scope) {
+    "use strict";
+    console.log('test trade player controller');
+  }
+]);
+Admin.controller('RosterTradeController', [
+  '$scope',
+  'RosterService',
+  'Roster',
+  function($scope, RosterService, Roster) {
+    "use strict";
+    var slug = 'bashers';
+    $scope.currentRosters = [];
+    $scope.sourceRosterName = '';
+    $scope.targetPlayer = {};
+    $scope.targetRosterName = '';
+
+    $scope.resetTradeObj = function() {
+      $scope.sourceRosterName = '';
+      $scope.targetPlayer = {};
+      $scope.targetRosterName = '';
+
+    };
+    $scope.saveTradeData = function() {
+
+      // get source roster
+      var sourceRoster = {};
+      var targetRoster = {};
+
+      for (var i = 0; i < $scope.currentRosters.length;i++) {
+        if ($scope.currentRosters[i].name.toLowerCase() === $scope.sourceRosterName.toLowerCase()) {
+          sourceRoster = $scope.currentRosters[i];
+          break;
+        }
+      }
+      for (var k = 0; k < $scope.currentRosters.length;k++) {
+        if ($scope.currentRosters[k].name.toLowerCase() === $scope.targetRosterName.toLowerCase()) {
+          targetRoster = $scope.currentRosters[k];
+          break;
+        }
+      }
+
+      if (sourceRoster && targetRoster) {
+        // isolate the player object
+        var playerObj = $scope.targetPlayer;
+
+        // update the roster to  new roster
+        playerObj.roster = $scope.targetRosterName;
+        // add to new roster players array
+        targetRoster.players.push(playerObj);
+        // remove from original roster
+        for (var x = 0;x < sourceRoster.players.length;x++) {
+          if (playerObj.mlbid === sourceRoster.players[x].mlbid) {
+            sourceRoster.players.splice(x,1);
+          }
+        }
+
+        delete sourceRoster._id;
+        delete targetRoster._id;
+
+        Roster.upsert(sourceRoster, function(response) {
+            Roster.upsert(targetRoster, function(response) {
+                console.log('FUCK YA');
+                $scope.resetTradeObj();
+                $scope.loadRosters();
+              },
+              function(response){
+                console.warn('bad update target roster');
+              });
+        },
+        function(response){
+          console.warn('bad update source roster');
+        });
+        var t = 'y';
+
+        var p = t;
+        // update roster
+
+      }
+
+      // get target roster
+
+
+
+    };
+    var pIndex = 1;
+    $scope.players = [];
+    $scope.change = function(roster) {
+
+      $scope.targetRosterName = roster;
+      console.log(roster);
+    };
+    $scope.playerAction = function(obj) {
+      $scope.sourceRosterName = obj.roster;
+      $scope.targetPlayer = obj;
+    };
+    // load roster data
+    var filter = {
+      'filter[where][slug]':slug
+    };
+    $scope.loadRosters = function() {
+      $scope.currentRosters = Roster.query({});
+      $scope.currentRosters.$promise.
+        then(function (result) {
+          $scope.currentRosters = result;
+          var totalPlayers = [];
+
+          for (var i = 0;i < $scope.currentRosters.length;i++) {
+            var tRoster = $scope.currentRosters[i];
+            var currSlug = tRoster.slug;
+            for (var x = 0;x < tRoster.players.length;x++) {
+              var tPlayer = tRoster.players[x];
+
+              tPlayer.roster = currSlug;
+              tPlayer.index = pIndex;
+              totalPlayers.push(tPlayer);
+              pIndex++;
+            }
+            pIndex = 1;
+          }
+
+          $scope.players = totalPlayers;
+
+        }
+      );
+
+    };
+    $scope.loadRosters();
+  }
+]);
 Admin.controller('RosterAdminController',[
   '$scope',
   'RosterService',
