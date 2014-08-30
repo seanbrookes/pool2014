@@ -24,9 +24,19 @@ DailyPitcherStat.afterRemote('find', function(ctx, user, next) {
 
     for (var i = 0;i < internalResult.length;i++){
       var tPlayer = internalResult[i];
-      if (uniqueMLBIDArray.indexOf(tPlayer.mlbid) === -1){
-        uniqueMLBIDArray.push(tPlayer.mlbid);
-        filteredOut.push(tPlayer);
+
+      var playerMonth = new Date(tPlayer.date).getMonth();
+      var playerDate = new Date(tPlayer.date).getDate();
+      var currMonth = new Date().getMonth();
+      var currDate = new Date().getDate();
+
+      if (parseInt(playerMonth) >= parseInt(currMonth)) {
+        if (parseInt(playerDate) >= parseInt(currDate)) {
+          if (uniqueMLBIDArray.indexOf(tPlayer.mlbid) === -1){
+            uniqueMLBIDArray.push(tPlayer.mlbid);
+            filteredOut.push(tPlayer);
+          }
+        }
       }
     }
     ctx.result = filteredOut;
